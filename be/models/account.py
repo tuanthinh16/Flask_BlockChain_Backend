@@ -21,17 +21,16 @@ class Account:
             'TimeCreated': self.timeCreated,
         }
 class AccountDTO:
-    def __init__(self,FullName,email,address,phone,timeCreated):
-        self.FullName = FullName
+    def __init__(self,fname='',email='',address='',phone='',timeCreated=''):
+        self.fname = fname
         self.email = email
         self.address = address
         self.phone = phone
         self.timeCreated = timeCreated
     def visible(self):
         return{
-            'FullName': self.fullName,
+            'FullName': self.fname,
             'Email': self.email,
-            'Username': self.username,
             'Address': self.address,
             'Phone': self.phone,
             'TimeCreated': self.timeCreated,
