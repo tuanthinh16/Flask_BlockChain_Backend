@@ -1,4 +1,3 @@
-from os import stat
 from flask import Flask,request,Response,json
 from flask_cors import CORS
 from pymongo import MongoClient
@@ -80,6 +79,7 @@ def login():
         isLogin = True
         # print(hashlib.sha256(password.encode('utf8')).hexdigest())
         token = generate_token(username)
+        # print(token)
         data_response = json.dumps({"response_data":"Login successfully","token":token})
         status = 200
     else:
@@ -195,9 +195,9 @@ def add_book():
         username = decode_auth_token(token)
         bookid = request.form['id']
         namebook = request.form['name']
-        typebook = request.form['type']
+        typebook = convertType(request.form['type'])
         detail = request.form['detail']
-        countrybook = request.form['country']
+        countrybook = convertCountry(request.form['country'])
         nxb = request.form['nxb']
         datexb = request.form['date']
         sl = request.form['sl']
@@ -230,6 +230,38 @@ def add_book():
                 status= 400,
                 mimetype='application/json',
                 )
+def convertType(type):
+    rs = ''
+    if type == 'cate-action':
+        rs = 'menu.categories-action'
+    elif type == 'cate-art':
+        rs = 'menu.categories-art'
+    elif type == 'cate-business':
+        rs = 'menu.categories-business'
+    elif type == 'cate-computer':
+        rs = 'menu.categories-computer'
+    elif type == 'cate-history':
+        rs = 'menu.categories-history'
+    elif type == 'cate-entertainment':
+        rs = 'menu.categories-entertainment'
+    elif type == 'cate-sport':
+        rs = 'menu.categories-sport'
+    elif type == 'cate-travel':
+        rs = 'menu.categories-travel'
+    elif type == 'cate-teen':
+        rs = 'menu.categories-teen'
+    elif type == 'cate-other':
+        rs = 'menu.categories-other'
+    return rs
+def convertCountry(country):
+    rs = ''
+    if country == 'country-vn':
+        rs = 'menu.lan-vi'
+    elif country == 'country-france':
+        rs ='menu.country-france'
+    elif country == 'country-usa':
+        rs = 'menu.country-usa'
+    return rs
 def add_book_amount(bookname, amount,IDBook):
     id = (datetime.now().microsecond + datetime(1970, 1, 1).microsecond)
     name = hashlib.md5(bookname.lower().encode('utf8')).hexdigest()
@@ -302,7 +334,35 @@ def check_vaild_book(bookid):
     if db.book.find_one({'_id':bookid}):
         return True
     else: return False
-
+@app.route('/api/book/profile/<string:id>',methods=['GET'])
+def getInfobook(id):
+    book = Book()
+    if db.book.find({'_id':id}):
+        for i in db.book.find({'_id':id}):
+            book.id = id
+            book.name = i['name']
+            book.type = i['type']
+            book.detail = i['detail']
+            book.country = i['country']
+            book.nxb = i['nxb']
+            book.datexb = i['datexb']
+            book.sl = i['sl']
+            book.timestamp = i['timestamp']
+            book.username =i['username']
+        imageURL = getImageFromID(id)
+        response = json.dumps({'data':book.visible(),"url":imageURL})
+        status = 200
+    else:
+        response = " Not Found"
+        status = 400
+    return Response(
+        response=response,
+        status=status,
+        mimetype='application/json'
+    )
+def getImageFromID(bookid):
+    for i in db.Images_book.find({'idBook':bookid}):
+        return i['url']
 
 #---------------------------------------------------token------------------------------------------------------
 def generate_token(username):
