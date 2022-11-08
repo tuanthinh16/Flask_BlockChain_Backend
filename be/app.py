@@ -1,3 +1,4 @@
+from urllib import response
 from flask import Flask,request,Response,json
 from flask_cors import CORS
 from pymongo import MongoClient
@@ -89,6 +90,17 @@ def login():
         response=data_response,
         status=status,
         mimetype = "application/json",
+    )
+@app.route('/api/logout',methods=['POST'])
+def logout():
+    global isLogin
+    global token
+    token = ""
+    isLogin = False
+    return Response(
+        response="Logout Successfull",
+        status=200,
+        mimetype='application/json'
     )
 @app.route('/api/getinfo/<string:username>',methods =['GET'])
 def getinfo(username):
@@ -282,7 +294,18 @@ def add_book_amount(bookname, amount,IDBook):
 def get_book_address_amount(bookID):
     for i in db.book_amount.find({'idBook':bookID}):
         return i['bookname'],i['amount']
-
+def get_info_book_by_id(id):
+    for i in db.book.find({"_id":id}):
+        return i['name'],i['nxb'],i['country'],i['detail']
+def get_url_by_id(id):
+    for i in db.Images_book.find({"idBook":id}):
+        return i['url']
+def update_sl_book(bookid,amount):
+    for i in db.book.find({"_id":bookid}):
+        if int(amount) <= int(i['sl']):
+            slnew = int(i['sl']) - int(amount)
+            res = db.book.update_one({'_id':bookid},{"$set":{"sl":slnew}})
+    return res
 @app.route('/api/book/sell-book/<string:bookid>',methods =['POST'])
 def sell_book(bookid):
     if isLogin:
@@ -290,28 +313,46 @@ def sell_book(bookid):
         amount = request.form['amount']
         username = decode_auth_token(token)
         price = request.form['price']
+        name,nxb,country,detail = get_info_book_by_id(bookid)
+        url = get_url_by_id(bookid)
         timestamp = datetime.now()
         isExisted = False
-        for i in db.bookSell.find():
-            if booksellID == i['booksellID']:
-                isExisted = True
-            else: isExisted = False
-        bookSell = {'_id':booksellID, 'amount':amount, 'price':price, 'timestamp':timestamp,'bookid':bookid,'username':username}
+        bookSell = {'_id':booksellID,'name':name,'nxb':nxb,'country':country,'url':url,'detail':detail, 'amount':amount, 'price':price, 'timestamp':timestamp,'bookid':bookid,'username':username}
         if not isExisted:
             if check_vaild_book(bookid):
                 db.bookSell.insert_one(bookSell)
-                response = json.dump({'data':' Add book to market successfully'})
+                update_sl_book(bookid,amount)
+                add_block(username,"sell",amount,(name+" have id: "+bookid),bookid,'Market')
+                response = ' Add book to market successfully'
                 status = 200
             else:
-                response = json.dump({'data':' Book has not been added to market successfully'})
+                response = ' Book has not been added to market successfully'
                 status = 400
     else:
         response = "Must be Login first"
-        status =401
+        status = 401
     return Response(
         response= response,
         status=status,
         mimetype='application/json',
+    )
+@app.route('/api/book/get-book-sell',methods=['POST','GET'])
+def getBookSell():
+    list = []
+    response = ''
+    status = 404
+    if isLogin:
+        for i in db.bookSell.find():
+            list.append(i)
+        response = json.dumps(list)
+        status = 200
+    else:
+        response = "Must be login"
+        status= 401
+    return Response(
+        response=response,
+        status=status,
+        mimetype='application/json'
     )
 @app.route('/api/book/add-image', methods=['POST'])
 def addimages():
@@ -363,7 +404,30 @@ def getInfobook(id):
 def getImageFromID(bookid):
     for i in db.Images_book.find({'idBook':bookid}):
         return i['url']
+@app.route('/api/book/get-id/<string:username>',methods=['GET'])
+def getListIDBook(username):
+    listbook=[]
+    response = ''
+    if isLogin:
+        if db.book.find({'username':username}):
+            for i in db.book.find({'username':username}): 
+                listbook.append(i)
+            response = json.dumps(listbook)
+            print(listbook)
+        else:
+            response = "Not Found"
+        return Response(
+            response=response,
+            status=200,
+            mimetype='application/json'
+        )
 
+    else:
+        return Response(
+            response='must be login',
+            status=401,
+            mimetype='application/json'
+        )
 #---------------------------------------------------token------------------------------------------------------
 def generate_token(username):
     SECRET_KEY="""\xf9'\xe4p(\xa9\x12\x1a!\x94\x8d\x1c\x99l\xc7\xb7e\xc7c\x86\x02MJ\xa0"""
