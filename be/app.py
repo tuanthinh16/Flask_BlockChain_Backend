@@ -161,6 +161,8 @@ def add_block(username,type,value,bookName,fromusr,to):
         data = " "+str(username)+" "+str(type)+" "+str(value)+" "+str(bookName)+" to"+str(to)
     elif type == "receive":
         data = " "+str(username)+" "+str(type)+" "+str(value)+" "+str(bookName) + "from "+str(fromusr)
+    elif type =='deposit':
+        data = "add "+str(value)+" to "+str(username)
     else:
         data = " "+str(username)+" "+str(type)+" "+str(value)+" "+str(bookName)
     listID =[]
@@ -199,7 +201,74 @@ def create_wallet(username):
     return res
 def add_balance(username,balance):
     db.wallet.update_one({'username':username},{"$set":{'balance':balance}})
+def get_balance(username):
+    for i in db.wallet.find_one({'username':username}):
+        return i['balance']
 
+@app.route('/api/wallet/<string:username>',methods=['POST'])
+def getWalletInfo(username):
+    response = ''
+    status = 400
+    if isLogin:
+        for i in db.wallet.find({'username':username}):
+            response = json.dumps({'id':i['_id'],'address':i['address'],'balance':i['balance'],'time':i['timeCreated']})
+            status = 200
+    else:
+        response = "Must be login"
+        status= 401
+    return Response(
+        response=response,
+        status=status,
+        mimetype='application/json'
+    )
+@app.route('/api/wallet/deposit/<int:value>',methods=['POST'])
+def deposit(value):
+    if isLogin:
+        username = decode_auth_token(token)
+        db.wallet.update_one({'username':username},{"$set":{'balance':value+int(get_balance(username))}})
+        add_block(username,'deposit',value,'','admin',username)
+        return Response(
+            response= "Add Sucessfully",
+            status=200,
+            mimetype='application/json'
+        )
+    else:
+        return Response(
+            response="Must be login",
+            status=401,
+            mimetype='application/json'
+        )
+@app.route('/api/wallet/withdraw/<int:value>',methods=['POST'])
+def withdraw(value):
+    if isLogin:
+        username = decode_auth_token(token)
+        db.wallet.update_one({'username':username},{"$set":{'balance':int(get_balance(username)-value)}})
+        add_block(username,'withdraw',value,'','admin',username)
+        return Response(
+            response= "Add Sucessfully",
+            status=200,
+            mimetype='application/json'
+        )
+    else:
+        return Response(
+            response="Must be login",
+            status=401,
+            mimetype='application/json'
+        )
+@app.route('/api/wallet/transfer/<string:username>',methods=['POST'])
+def getTransfer(username):
+    list = []
+    if isLogin:
+        for i in db.histoy_ser.find({'username':username}):
+            if i['methods'] == 'deposit' or i['methods'] == 'withdraw':
+                list.append(i)
+    else:
+        print ("Must be Login")
+    return Response(
+        response=json.dumps({'data':list}),
+        status=200,
+        mimetype='application/json'
+    )
 #-----------------------------------------------books------------------------------------------------------------------
 @app.route('/api/add-book',methods=['POST'])
 def add_book():

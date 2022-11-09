@@ -1,0 +1,31 @@
+[{
+  "_id": 304010,
+  "address": "21232f297a57a5a743894a0e4a801fc3",
+  "username": "admin",
+  "balance": 0,
+  "timeCreated": {
+    "$date": {
+      "$numberLong": "1665445425304"
+    }
+  }
+},{
+  "_id": 997921,
+  "address": "f5d2abfd1fddbc2228111cf02ddf3067",
+  "username": "tuanthinh",
+  "balance": 2,
+  "timeCreated": {
+    "$date": {
+      "$numberLong": "1665445453997"
+    }
+  }
+},{
+  "_id": 846096,
+  "address": "650d5ec38ac4d21d37f98e97e3610de9",
+  "username": "thinh",
+  "balance": 0,
+  "timeCreated": {
+    "$date": {
+      "$numberLong": "1666770922846"
+    }
+  }
+}]
