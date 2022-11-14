@@ -342,6 +342,8 @@ def convertCountry(country):
         rs ='menu.country-france'
     elif country == 'country-usa':
         rs = 'menu.country-usa'
+    elif country == 'country-other':
+        rs = 'menu.country-other'
     return rs
 def add_book_amount(bookname, amount,IDBook):
     id = (datetime.now().microsecond + datetime(1970, 1, 1).microsecond)
@@ -375,6 +377,81 @@ def update_sl_book(bookid,amount):
             slnew = int(i['sl']) - int(amount)
             res = db.book.update_one({'_id':bookid},{"$set":{"sl":slnew}})
     return res
+@app.route("/api/book/get-booksell-by-id/<int:id>",methods=['POST'])
+def getbooksell_byid(id):
+    response = ""
+    status = 405
+    if isLogin:
+        for i in db.bookSell.find({'_id':id}):
+            response = json.dumps(i)
+            status = 200
+    else:
+        response = "Must be login"
+        status = 401
+    return Response(
+        response=response,
+        status=status,
+        mimetype="application/json"
+    )
+@app.route("/api/book/get-url-by-id/<string:id>", methods=["GET"])
+def getUrl(id):
+    for i in db.Images_book.find_one({"idBook":id}):
+        return str(i['url'])
+def checkbooksell(id):
+    for i in db.bookSell.find({"bookid":id}):
+        return i['url'],1
+    else: 
+        return "",0
+@app.route("/api/book/type/<string:value>", methods=["POST"])
+def FillterType(value):
+    list =[]
+    response = ""
+    status = 404
+    if isLogin:
+        for i in db.book.find({"type":value}):
+            url,code = checkbooksell(i['_id'])
+            if code == 1:
+                i['timestamp'] = url
+                list.append(i)
+                
+                # urllist =[{'url':url}]
+                # list.extend(urllist)
+                print(list)
+        response = json.dumps(list)
+        status = 200
+    else:
+        response = "Must be login"
+        status = 401
+    return Response(
+        response=response,
+        status=status,
+        mimetype="application/json"
+    )
+@app.route("/api/book/country/<string:value>", methods=["POST"])
+def FillterCountry(value):
+    list =[]
+    response = ""
+    status = 404
+    if isLogin:
+        for i in db.book.find({"country":value}):
+            url,code = checkbooksell(i['_id'])
+            if code == 1:
+                i['timestamp'] = url
+                list.append(i)
+                
+                # urllist =[{'url':url}]
+                # list.extend(urllist)
+                print(list)
+        response = json.dumps(list)
+        status = 200
+    else:
+        response = "Must be login"
+        status = 401
+    return Response(
+        response=response,
+        status=status,
+        mimetype="application/json"
+    )
 @app.route('/api/book/sell-book/<string:bookid>',methods =['POST'])
 def sell_book(bookid):
     if isLogin:
