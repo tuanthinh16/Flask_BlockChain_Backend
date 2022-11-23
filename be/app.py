@@ -162,7 +162,13 @@ def add_block(username,type,value,bookName,fromusr,to):
     elif type == "receive":
         data = " "+str(username)+" "+str(type)+" "+str(value)+" "+str(bookName) + "from "+str(fromusr)
     elif type =='deposit':
-        data = "add "+str(value)+" to "+str(username)
+        data = "add "+str("+"+value)+" to "+str(username)
+    elif type =='withdraw':
+        data = "add "+str("-"+value)+" to "+str(username)
+    elif type =='buy':
+        data = "add "+str("+"+value)+" to "+str(username)
+    elif type =='sell':
+        data = "add "+str("-"+value)+" to "+str(username)
     else:
         data = " "+str(username)+" "+str(type)+" "+str(value)+" "+str(bookName)
     listID =[]
@@ -189,8 +195,40 @@ def add_block(username,type,value,bookName,fromusr,to):
         status = 200,
         mimetype='application/json',
     )
-
+@app.route('/api/block/getall', methods = ['POST'])
+def getblockall():
+    listBlocks = []
+    if isLogin:
+        for i in db.block.find():
+            listBlocks.append(i)
+    return Response(
+        response= json.dumps(listBlocks),
+        status=200,
+        mimetype="application/json"
+    )
+@app.route("/api/block/gettotal",methods=['POST'])
+def gettotal_block():
+    count = 0
+    if isLogin:
+        for i in db.block.find():
+            count+=1
+    return Response(
+        response = str(count),
+        status=200,
+        mimetype="application/json"
+    )
 #------------------------------------------------ wallet-----------------------------------------------------------------------
+@app.route("/api/wallet/gettotal",methods=['POST'])
+def gettotal_wallet():
+    count = 0
+    if isLogin:
+        for i in db.wallet.find():
+            count+=1
+    return Response(
+        response = str(count),
+        status=200,
+        mimetype="application/json"
+    )
 def create_wallet(username):
     walletid = (datetime.now().microsecond + datetime(1970, 1, 1).microsecond)
     address = hashlib.md5(username.encode('utf8')).hexdigest()
@@ -202,9 +240,11 @@ def create_wallet(username):
 def add_balance(username,balance):
     db.wallet.update_one({'username':username},{"$set":{'balance':balance}})
 def get_balance(username):
-    for i in db.wallet.find_one({'username':username}):
-        return i['balance']
-
+    for i in db.wallet.find({'username':username}):
+        return int(i['balance'])
+def update_wallet(username,amount):
+    res = db.wallet.update_one({'username':username},{"$set":{'balance':amount}})
+    return res
 @app.route('/api/wallet/<string:username>',methods=['POST'])
 def getWalletInfo(username):
     response = ''
@@ -221,12 +261,12 @@ def getWalletInfo(username):
         status=status,
         mimetype='application/json'
     )
-@app.route('/api/wallet/deposit/<int:value>',methods=['POST'])
+@app.route('/api/wallet/deposit/<string:value>',methods=['POST'])
 def deposit(value):
     if isLogin:
         username = decode_auth_token(token)
-        db.wallet.update_one({'username':username},{"$set":{'balance':value+int(get_balance(username))}})
-        add_block(username,'deposit',value,'','admin',username)
+        db.wallet.update_one({'username':username},{"$set":{'balance':int(value)+int(get_balance(username))}})
+        add_block(username,'deposit',("+"+value),'','admin',username)
         return Response(
             response= "Add Sucessfully",
             status=200,
@@ -238,14 +278,16 @@ def deposit(value):
             status=401,
             mimetype='application/json'
         )
-@app.route('/api/wallet/withdraw/<int:value>',methods=['POST'])
-def withdraw(value):
+@app.route('/api/wallet/withdraw',methods=['POST'])
+def withdraw():
+    address = request.form['address']
+    amount = request.form['amount']
     if isLogin:
         username = decode_auth_token(token)
-        db.wallet.update_one({'username':username},{"$set":{'balance':int(get_balance(username)-value)}})
-        add_block(username,'withdraw',value,'','admin',username)
+        db.wallet.update_one({'username':username},{"$set":{'balance':int(get_balance(username)-int(amount))}})
+        add_block(username,'withdraw',("+"+amount),'',username,address)
         return Response(
-            response= "Add Sucessfully",
+            response= "Withdraw Sucessfully",
             status=200,
             mimetype='application/json'
         )
@@ -255,12 +297,13 @@ def withdraw(value):
             status=401,
             mimetype='application/json'
         )
+
 @app.route('/api/wallet/transfer/<string:username>',methods=['POST'])
 def getTransfer(username):
     list = []
     if isLogin:
-        for i in db.histoy_ser.find({'username':username}):
-            if i['methods'] == 'deposit' or i['methods'] == 'withdraw':
+        for i in db.history_user.find({'username':username}):
+            if i['methods'] == 'deposit' or i['methods'] == 'withdraw' or i['methods']  == 'buy' or i['methods'] == 'sell':
                 list.append(i)
     else:
         print ("Must be Login")
@@ -393,6 +436,18 @@ def getbooksell_byid(id):
         status=status,
         mimetype="application/json"
     )
+@app.route("/api/get-booksell-bookid/<string:id>", methods=["POST"])
+def getbooksell_bybookid(id):
+    response = ""
+    status = 405
+    if isLogin:
+        for i in db.bookSell.find({'bookid':id}):
+            response = i
+    return Response(
+        response= json.dumps(response),
+        status=200,
+        mimetype="application/json"
+    )
 @app.route("/api/book/get-url-by-id/<string:id>", methods=["GET"])
 def getUrl(id):
     for i in db.Images_book.find_one({"idBook":id}):
@@ -402,6 +457,17 @@ def checkbooksell(id):
         return i['url'],1
     else: 
         return "",0
+@app.route("/api/book/getall", methods=["POST"])
+def getall_book():
+    listBook = []
+    if isLogin:
+        for i in db.book.find():
+            listBook.append(i)
+    return Response(
+            response=json.dumps(listBook),
+            status=200,
+            mimetype="application/json"
+        )
 @app.route("/api/book/type/<string:value>", methods=["POST"])
 def FillterType(value):
     list =[]
@@ -450,6 +516,46 @@ def FillterCountry(value):
     return Response(
         response=response,
         status=status,
+        mimetype="application/json"
+    )
+   
+def update_username(bookid,username,amount):
+    print(amount)
+    res = ''
+    for i in db.book.find({"_id":bookid}):
+        if amount == int(i['sl']):
+            res = db.book.update_one({'_id':bookid},{"$set":{'username':username}})
+        elif amount < int(i['sl']):
+            res = db.book.update_one({'_id':bookid},{"$set":{'sl':(int(i['sl'])-amount)}})
+            for item in db.book.find({'_id':bookid}):
+                print('da add')
+                newbook = {'_id':str(int(bookid)+123),'name':item['name'],'type':item['type'],'detail':item['detail'],'country':item['country'],'nxb':item['nxb'],'datexb':item['datexb'],'sl':amount,'username':username,'timestamp':item['timestamp']}
+                db.book.insert_one(newbook)
+    return res
+@app.route("/api/book/buy/<int:id>",methods=['POST'])
+def onBuy(id):
+    response_data = ''
+    if isLogin:
+        username = decode_auth_token(token)
+        balance = get_balance(username)
+        
+        for i in db.bookSell.find({'_id':id}):
+            print(i)
+            if int(i['price']) < int(balance*24345):
+                new_balance = round((int(balance*24345) - int(i['price']))/24345)
+                update_wallet(username,new_balance)
+                seller_balance = get_balance(i['username'])
+                update_wallet(i['username'],(seller_balance+round(int(i['price'])/24245)))
+                update_username(i['bookid'],username,int(i['amount']))
+                add_block(username,'buy',str(i['amount']),str(i['bookid']),str(i['username']),username)
+                db.bookSell.delete_one({'_id':id})
+                add_block(i['username'],"sold",round(int(i['price'])/23345),str(i['bookid']),username,str(i['username']))
+        response_data = "OK"
+    else: 
+        response_data = "Must be login"
+    return Response(
+        response=response_data,
+        status=200,
         mimetype="application/json"
     )
 @app.route('/api/book/sell-book/<string:bookid>',methods =['POST'])
@@ -574,6 +680,17 @@ def getListIDBook(username):
             status=401,
             mimetype='application/json'
         )
+@app.route("/api/book/gettotal",methods=['POST'])
+def gettota_book():
+    count = 0
+    if isLogin:
+        for i in db.book.find():
+            count+=1
+    return Response(
+        response = str(count),
+        status=200,
+        mimetype="application/json"
+    )
 #---------------------------------------------------token------------------------------------------------------
 def generate_token(username):
     SECRET_KEY="""\xf9'\xe4p(\xa9\x12\x1a!\x94\x8d\x1c\x99l\xc7\xb7e\xc7c\x86\x02MJ\xa0"""
@@ -606,4 +723,4 @@ if __name__ == '__main__':
     app.config['SESSION_TYPE'] = 'filesystem'
     app.config['DEBUG'] = True
     app.testing = True
-    app.run(host='0.0.0.0', port=443, debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
