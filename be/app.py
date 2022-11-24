@@ -159,16 +159,18 @@ def add_block(username,type,value,bookName,fromusr,to):
         data = " "+str(username)+" "+str(type)+" wallet at "+str(timestamp)
     elif type =="give":
         data = " "+str(username)+" "+str(type)+" "+str(value)+" "+str(bookName)+" to"+str(to)
-    elif type == "receive":
-        data = " "+str(username)+" "+str(type)+" "+str(value)+" "+str(bookName) + "from "+str(fromusr)
+    elif type == "received":
+        data = "recived "+str(value)+" from "+str(username)
     elif type =='deposit':
-        data = "add "+str("+"+value)+" to "+str(username)
+        data = "deposit "+str("+"+value)
     elif type =='withdraw':
-        data = "add "+str("-"+value)+" to "+str(username)
+        data = "withdraw "+str("-"+value)
     elif type =='buy':
-        data = "add "+str("+"+value)+" to "+str(username)
+        data = "buy "+str(bookName)+"with  "+str("-"+str(value)) +"from: "+str(fromusr)
     elif type =='sell':
-        data = "add "+str("-"+value)+" to "+str(username)
+        data = "sell "+str(bookName)+"with : "+str(value) 
+    elif type =='sold':
+        data = "sold "+str(bookName)+"with : "+str("+"+str(value))       
     else:
         data = " "+str(username)+" "+str(type)+" "+str(value)+" "+str(bookName)
     listID =[]
@@ -261,12 +263,17 @@ def getWalletInfo(username):
         status=status,
         mimetype='application/json'
     )
-@app.route('/api/wallet/deposit/<string:value>',methods=['POST'])
-def deposit(value):
+@app.route('/api/wallet/deposit',methods=['POST'])
+def deposit():
+    depositID = (datetime.now().microsecond + datetime(1970, 1, 1).microsecond)
+    value = request.form['value']
+    email = request.form['email']
     if isLogin:
         username = decode_auth_token(token)
         db.wallet.update_one({'username':username},{"$set":{'balance':int(value)+int(get_balance(username))}})
         add_block(username,'deposit',("+"+value),'','admin',username)
+        deposits = {'_id':depositID,'value':value,'username':username,'email':email}
+        db.deposit.insert_one(deposits)
         return Response(
             response= "Add Sucessfully",
             status=200,
@@ -303,7 +310,7 @@ def getTransfer(username):
     list = []
     if isLogin:
         for i in db.history_user.find({'username':username}):
-            if i['methods'] == 'deposit' or i['methods'] == 'withdraw' or i['methods']  == 'buy' or i['methods'] == 'sell':
+            if i['methods'] == 'deposit' or i['methods'] == 'withdraw' or i['methods']  == 'buy' or i['methods'] == 'sell' or i['methods'] == 'send' or i['methods'] == 'recived':
                 list.append(i)
     else:
         print ("Must be Login")
@@ -312,6 +319,32 @@ def getTransfer(username):
         status=200,
         mimetype='application/json'
     )
+@app.route('/api/wallet/send',methods=['POST'])
+def send():
+    response_data = ''
+    status_code = 404
+    if isLogin:
+        username = decode_auth_token(token)
+        address = request.form['address']
+        amount = request.form['amount']
+        for i in db.wallet.find({'username':username}):
+            newbalance = int(i['balance']) - int(amount)
+            update_wallet(username, newbalance)
+            add_block(username,'send',("-"+amount),'',username,address)
+        for i in db.wallet.find({'address':address}):
+            newbal = int(i['balance']) + int(amount)
+            update_wallet(i['username'],newbal)
+            add_block(i['username'],'recived',("+"+amount),'',username,i['username'])
+        response_data = 'Ok'
+        status_code = 200
+    else: 
+        response_data='Must be login'
+        status_code = 401
+    return Response(
+        response=response_data,
+        status=status_code,
+        mimetype="application/json"
+    ) 
 #-----------------------------------------------books------------------------------------------------------------------
 @app.route('/api/add-book',methods=['POST'])
 def add_book():
@@ -420,6 +453,57 @@ def update_sl_book(bookid,amount):
             slnew = int(i['sl']) - int(amount)
             res = db.book.update_one({'_id':bookid},{"$set":{"sl":slnew}})
     return res
+@app.route('/api/book/comment/get-byid/<string:id>', methods=['POST'])
+def get_comment(id):
+    listcmt = []
+    if isLogin:
+        for i in db.comment.find({"bookid":id}):
+            listcmt.append(i)
+    return Response(
+        response=json.dumps(listcmt),
+        status=200,
+        mimetype="  application/json"
+    )
+@app.route('/api/book/comment/add',methods=['POST'])
+def add_cmt():
+    if isLogin:
+        username = decode_auth_token(token)
+        detail = request.form['detail']
+        bookid = request.form['bookid']
+        cmtID = (datetime.now().microsecond + datetime(1970, 1, 1).microsecond)
+        cmt = {'_id':cmtID,'username':username,'bookid':bookid,'detail':detail,'time':datetime.now(),'point':0}
+        db.comment.insert_one(cmt)
+    return Response(
+        response="Successfull",
+        status=200,
+        mimetype="application/json"
+    )
+@app.route('/api/book/comment/delete/<int:id>', methods=['POST'])
+def onDelete(id):
+    if isLogin:
+        res = db.comment.delete_one({'_id':id})
+    return Response(
+        response=json.dumps({'data':str(res)}),
+        status=200,
+        mimetype="application/json"
+    )
+def get_point(id):
+    if db.comment.find({'_id':id}):
+        for i in db.comment.find({'_id':id}):
+            return i['point']
+    else: return 0
+@app.route('/api/book/comment/like/<int:id>',methods=['POST'])
+def onLike(id):
+    newpoint = int(get_point(id)) + 1
+    res = db.comment.update_one({'_id':id},{'$set':{'point':newpoint}})
+    return Response(
+        response=json.dumps({'data':str(res)}),
+        status=200,
+        mimetype="application/json"
+    )
+@app.route('/api/book/comment/get-point/<int:id>',methods=['POST'])
+def getpoint(id):
+    return json.dumps(get_point(id))
 @app.route("/api/book/get-booksell-by-id/<int:id>",methods=['POST'])
 def getbooksell_byid(id):
     response = ""
@@ -468,7 +552,7 @@ def getall_book():
             status=200,
             mimetype="application/json"
         )
-@app.route("/api/book/type/<string:value>", methods=["POST"])
+@app.route("/api/book/type/<string:value>", methods=["POST"]) #type
 def FillterType(value):
     list =[]
     response = ""
@@ -493,7 +577,7 @@ def FillterType(value):
         status=status,
         mimetype="application/json"
     )
-@app.route("/api/book/country/<string:value>", methods=["POST"])
+@app.route("/api/book/country/<string:value>", methods=["POST"]) #country
 def FillterCountry(value):
     list =[]
     response = ""
@@ -521,41 +605,45 @@ def FillterCountry(value):
    
 def update_username(bookid,username,amount):
     print(amount)
-    res = ''
-    for i in db.book.find({"_id":bookid}):
-        if amount == int(i['sl']):
-            res = db.book.update_one({'_id':bookid},{"$set":{'username':username}})
-        elif amount < int(i['sl']):
-            res = db.book.update_one({'_id':bookid},{"$set":{'sl':(int(i['sl'])-amount)}})
-            for item in db.book.find({'_id':bookid}):
-                print('da add')
-                newbook = {'_id':str(int(bookid)+123),'name':item['name'],'type':item['type'],'detail':item['detail'],'country':item['country'],'nxb':item['nxb'],'datexb':item['datexb'],'sl':amount,'username':username,'timestamp':item['timestamp']}
-                db.book.insert_one(newbook)
+    for item in db.book.find({"_id":bookid}):
+        newid = (datetime.now().microsecond + datetime(1970, 1, 1).microsecond)
+        _id = (datetime.now().microsecond + datetime(1970, 2, 1).microsecond)
+        for i in db.Images_book.find({'idBook':bookid}):
+            newimages = {'_id':str(_id),'idBook':str(newid),'filename':i['filename'],'url':i['url']}
+            db.Images_book.insert_one(newimages)
+        newbook = {'_id':str(newid),'name':item['name'],'type':item['type'],'detail':item['detail'],'country':item['country'],'nxb':item['nxb'],'datexb':item['datexb'],'sl':amount,'username':username,'timestamp':datetime.now()}
+        res = db.book.insert_one(newbook)
     return res
-@app.route("/api/book/buy/<int:id>",methods=['POST'])
+@app.route("/api/book/buy/<int:id>",methods=['POST']) #buy book
 def onBuy(id):
     response_data = ''
+    status_code = 404
     if isLogin:
         username = decode_auth_token(token)
-        balance = get_balance(username)
-        
+        balance = get_balance(username)  
         for i in db.bookSell.find({'_id':id}):
-            print(i)
-            if int(i['price']) < int(balance*24345):
+            print(int(i['price']) < balance*24345)
+            if int(i['price']) < balance*24345:
                 new_balance = round((int(balance*24345) - int(i['price']))/24345)
                 update_wallet(username,new_balance)
                 seller_balance = get_balance(i['username'])
                 update_wallet(i['username'],(seller_balance+round(int(i['price'])/24245)))
-                update_username(i['bookid'],username,int(i['amount']))
-                add_block(username,'buy',str(i['amount']),str(i['bookid']),str(i['username']),username)
+                update_username(i['bookid'],username,i['amount'])
+                add_block(username,'buy',str(i['price']),str(i['bookid']),str(i['username']),username)
                 db.bookSell.delete_one({'_id':id})
                 add_block(i['username'],"sold",round(int(i['price'])/23345),str(i['bookid']),username,str(i['username']))
-        response_data = "OK"
+                response_data = "OK"
+                status_code=200
+            else:
+                response_data = "balance not enough to buy"
+                status_code = 405
+        
     else: 
         response_data = "Must be login"
+        status_code=401
     return Response(
         response=response_data,
-        status=200,
+        status=status_code,
         mimetype="application/json"
     )
 @app.route('/api/book/sell-book/<string:bookid>',methods =['POST'])
@@ -569,6 +657,9 @@ def sell_book(bookid):
         url = get_url_by_id(bookid)
         timestamp = datetime.now()
         isExisted = False
+        print(amount)
+        # res = db.book.update_one({'_id':bookid},{'$set':{'sl':slnew}})
+        # print(res)
         bookSell = {'_id':booksellID,'name':name,'nxb':nxb,'country':country,'url':url,'detail':detail, 'amount':amount, 'price':price, 'timestamp':timestamp,'bookid':bookid,'username':username}
         if not isExisted:
             if check_vaild_book(bookid):
@@ -691,6 +782,36 @@ def gettota_book():
         status=200,
         mimetype="application/json"
     )
+@app.route('/api/search/<string:value>',methods=['GET'])
+def onSearch(value):
+    listaccount = []
+    listbook = []
+    response_data =''
+    status_code = 404
+    if isLogin:
+        for i in db.account.find({"username":{'$regex':value}}):
+            listaccount.append(i)
+        for i in db.book.find({'name':{'$regex':value}}):
+            listbook.append(i)
+        for i in db.book.find({'country':{'$regex':value}}):
+            listbook.append(i)
+        for i in db.book.find({'type':{'$regex':value}}):
+                listbook.append(i)
+        if len(listbook):
+            response_data = json.dumps(listbook)
+            status_code = 200
+        if len(listaccount):
+            response_data = json.dumps(listaccount)
+            status_code = 200
+    else:
+        response_data = 'must be login'
+        status_code = 401
+    return Response(
+        response=response_data,
+        status=status_code,
+        mimetype="application/json"
+    )
+    
 #---------------------------------------------------token------------------------------------------------------
 def generate_token(username):
     SECRET_KEY="""\xf9'\xe4p(\xa9\x12\x1a!\x94\x8d\x1c\x99l\xc7\xb7e\xc7c\x86\x02MJ\xa0"""
