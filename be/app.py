@@ -1,4 +1,3 @@
-from urllib import response
 from flask import Flask,request,Response,json
 from flask_cors import CORS
 from pymongo import MongoClient
@@ -81,7 +80,7 @@ def login():
         # print(hashlib.sha256(password.encode('utf8')).hexdigest())
         token = generate_token(username)
         # print(token)
-        data_response = json.dumps({"response_data":"Login successfully","token":token})
+        data_response = json.dumps({"response_data":"Login successfully","token":str(token)})
         status = 200
     else:
         data_response = "Wrong password"
@@ -145,12 +144,33 @@ def getaddressbyusername(username):
     else:
         for i in db.wallet.find({'username': username}):
             return i['address']
+
 def getwalletbyusername(username):
     if username == "admin":
         return "admin",0
     else:
         for i in db.wallet.find({'username': username}):
             return i['address'], i['balance']
+@app.route('/api/account/edit',methods=['POST'])
+def onEdit():
+    res = ''
+    st = 404
+    if isLogin:
+        username = decode_auth_token(token)
+        phone = request.form['phone']
+        address = request.form['dc']
+        email = request.form['email']
+        db.account.update_one({'username':username},{'$set':{'address':address, 'phone':phone,'email':email}})
+        res = "Successfull"
+        st = 200
+    else:
+        res = " Must be login"
+        st  = 401
+    return Response(
+        response=res,
+        status = st,
+        mimetype="application/json"
+    )
 
 #---------------------------------------------block chain----------------------------------------------------------------
 def add_block(username,type,value,bookName,fromusr,to):
@@ -566,7 +586,7 @@ def FillterType(value):
                 
                 # urllist =[{'url':url}]
                 # list.extend(urllist)
-                print(list)
+                # print(list)
         response = json.dumps(list)
         status = 200
     else:
@@ -604,7 +624,8 @@ def FillterCountry(value):
     )
    
 def update_username(bookid,username,amount):
-    print(amount)
+    # print(amount)
+    res = ''
     for item in db.book.find({"_id":bookid}):
         newid = (datetime.now().microsecond + datetime(1970, 1, 1).microsecond)
         _id = (datetime.now().microsecond + datetime(1970, 2, 1).microsecond)
@@ -629,14 +650,14 @@ def onBuy(id):
                 seller_balance = get_balance(i['username'])
                 update_wallet(i['username'],(seller_balance+round(int(i['price'])/24245)))
                 update_username(i['bookid'],username,i['amount'])
-                add_block(username,'buy',str(i['price']),str(i['bookid']),str(i['username']),username)
+                add_block(username,'buy',"-"+str(i['price']),str(i['bookid']),str(i['username']),username)
                 db.bookSell.delete_one({'_id':id})
-                add_block(i['username'],"sold",round(int(i['price'])/23345),str(i['bookid']),username,str(i['username']))
+                add_block(i['username'],"sold",("+"+str(round(int(i['price'])/23345))),str(i['bookid']),username,str(i['username']))
                 response_data = "OK"
                 status_code=200
             else:
                 response_data = "balance not enough to buy"
-                status_code = 405
+                status_code = 201
         
     else: 
         response_data = "Must be login"
@@ -665,6 +686,9 @@ def sell_book(bookid):
             if check_vaild_book(bookid):
                 db.bookSell.insert_one(bookSell)
                 update_sl_book(bookid,amount)
+                for i in db.book.find({'_id':bookid}):
+                    if int(i['sl']) == 0:
+                        db.book.delete_one({'_id':bookid})
                 add_block(username,"sell",amount,(name+" have id: "+bookid),bookid,'Market')
                 response = ' Add book to market successfully'
                 status = 200
@@ -706,7 +730,7 @@ def addimages():
     filename = secure_filename(fileImages.filename)
     if fileImages:
         upload_result = cloudinary.uploader.upload(fileImages)
-        # print(upload_result)
+        print(upload_result)
     images = {'_id':id,'idBook':idBook,'filename':filename,'url':upload_result["secure_url"]}
     db.Images_book.insert_one(images)
     return Response(
@@ -756,7 +780,7 @@ def getListIDBook(username):
             for i in db.book.find({'username':username}): 
                 listbook.append(i)
             response = json.dumps(listbook)
-            print(listbook)
+            
         else:
             response = "Not Found"
         return Response(
@@ -790,18 +814,20 @@ def onSearch(value):
     status_code = 404
     if isLogin:
         for i in db.account.find({"username":{'$regex':value}}):
+            i['timecreated'] = getaddressbyusername(i['username'])
             listaccount.append(i)
         for i in db.book.find({'name':{'$regex':value}}):
             listbook.append(i)
         for i in db.book.find({'country':{'$regex':value}}):
             listbook.append(i)
         for i in db.book.find({'type':{'$regex':value}}):
+                
                 listbook.append(i)
         if len(listbook):
-            response_data = json.dumps(listbook)
+            response_data = json.dumps({"book":listbook,'account':listaccount})
             status_code = 200
         if len(listaccount):
-            response_data = json.dumps(listaccount)
+            response_data = json.dumps({"account":listaccount,"book":listbook})
             status_code = 200
     else:
         response_data = 'must be login'
