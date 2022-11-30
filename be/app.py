@@ -24,7 +24,7 @@ cors = CORS(app, resources={r"/api/*": {"origin": "*"}})
 
 
 client = MongoClient("localhost:27017")
-db = client.DATN_data
+db = client.Data
 cloudinary.config(
     cloud_name="dwweabf16",
     api_key="723518173222341",
@@ -480,6 +480,7 @@ def getTransfer(username):
                 or i["methods"] == "sell"
                 or i["methods"] == "send"
                 or i["methods"] == "recived"
+                or i["methods"] == "ship"
             ):
                 list.append(i)
     else:
@@ -776,11 +777,12 @@ def geturl(id):
 
 @app.route("/api/book/type/<string:value>", methods=["POST"])  # type
 def FillterType(value):
+    type = convertType(value)
     list = []
     response = ""
     status = 404
     if isLogin:
-        for i in db.book.find({"type": value}):
+        for i in db.book.find({"type": type}):
             url = str(geturl(i["_id"]))
             i["timestamp"] = url
             list.append(i)
@@ -798,11 +800,12 @@ def FillterType(value):
 
 @app.route("/api/book/country/<string:value>", methods=["POST"])  # country
 def FillterCountry(value):
+    country = convertCountry(value)
     list = []
     response = ""
     status = 404
     if isLogin:
-        for i in db.book.find({"country": value}):
+        for i in db.book.find({"country": country}):
             url = str(geturl(i["_id"]))
             i["timestamp"] = url
             list.append(i)
@@ -852,6 +855,7 @@ def update_username(bookid, username, amount):
                 "datexb": item["datexb"],
                 "sl": amount,
                 "username": username,
+                "pdf": item["pdf"],
                 "timestamp": datetime.now(),
             }
             res = db.book.insert_one(newbook)
@@ -877,6 +881,7 @@ def update_username(bookid, username, amount):
                 "datexb": item["datexb"],
                 "sl": amount,
                 "username": username,
+                "pdf": item["pdf"],
                 "timestamp": datetime.now(),
             }
             res = db.book.insert_one(newbook)
@@ -1112,6 +1117,46 @@ def check_vaild_book(bookid):
         return False
 
 
+@app.route("/api/book/shipForm/<string:idbook>", methods=["POST"])
+def shipForm(idbook):
+    id = datetime.now().microsecond + datetime(1970, 1, 1).microsecond
+    name = request.form["name"]
+    sdt = request.form["sdt"]
+    address = request.form["address"]
+    amount = request.form["amount"]
+    timecreated = datetime.now()
+    shipForm = {
+        "_id": id,
+        "bookid": idbook,
+        "name": name,
+        "address": address,
+        "sdt": sdt,
+        "amount": amount,
+        "timecreated": timecreated,
+    }
+    add_block(
+        decode_auth_token(token), "ship", amount, getaddress_book(idbook), "", "", 1
+    )
+    currentamount = 0
+    current = 0
+    for i in db.wallet.find({"username": decode_auth_token(token)}):
+        currentamount = i["balance"]
+    update_wallet(decode_auth_token(token), int(currentamount) - 5)
+    add_block(
+        decode_auth_token(token), "ship", "-5", getaddress_book(idbook), "", "", 0
+    )
+    for i in db.book.find({"_id": idbook}):
+        current = i["sl"]
+    if current >= amount:
+        db.book.update_one(
+            {"_id": idbook}, {"$set": {"sl": int(current) - int(amount)}}
+        )
+    else:
+        return "not enough amount"
+    db.shipForm.insert_one(shipForm)
+    return Response(response="Add Sucessfully", status=200, mimetype="application/json")
+
+
 @app.route("/api/book/profile/<string:id>", methods=["GET"])
 def getInfobook(id):
     book = Book()
@@ -1127,6 +1172,7 @@ def getInfobook(id):
             book.sl = i["sl"]
             book.timestamp = i["timestamp"]
             book.username = i["username"]
+            book.pdf = i["pdf"]
         imageURL = getImageFromID(id)
         response = json.dumps({"data": book.visible(), "url": imageURL})
         status = 200
