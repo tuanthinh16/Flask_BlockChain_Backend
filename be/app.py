@@ -58,7 +58,8 @@ def register():
         else:
             isExisted = False
     if not isExisted:
-        acc = Account(fname, username, hash_password, email, "", "", timecreated)
+        acc = Account(fname, username, hash_password,
+                      email, "", "", timecreated)
         account = {
             "_id": userID,
             "fname": fname.upper(),
@@ -222,7 +223,8 @@ def add_block(username, type, value, bookName, fromusr, to, role):
     if role == 0:  # user
         if type == "create":
             data = (
-                " " + str(username) + " " + str(type) + " wallet at " + str(timestamp)
+                " " + str(username) + " " + str(type) +
+                " wallet at " + str(timestamp)
             )
         elif type == "give":
             data = (
@@ -385,7 +387,8 @@ def create_wallet(username):
 
 
 def add_balance(username, balance):
-    db.wallet.update_one({"username": username}, {"$set": {"balance": balance}})
+    db.wallet.update_one({"username": username}, {
+                         "$set": {"balance": balance}})
 
 
 def get_balance(username):
@@ -394,7 +397,8 @@ def get_balance(username):
 
 
 def update_wallet(username, amount):
-    res = db.wallet.update_one({"username": username}, {"$set": {"balance": amount}})
+    res = db.wallet.update_one({"username": username}, {
+                               "$set": {"balance": amount}})
     print("update wallet" + str(res))
     return res
 
@@ -458,7 +462,8 @@ def withdraw():
             {"username": username},
             {"$set": {"balance": int(get_balance(username) - int(amount))}},
         )
-        add_block(username, "withdraw", ("+" + amount), "", username, address, 0)
+        add_block(username, "withdraw", ("+" + amount),
+                  "", username, address, 0)
         return Response(
             response="Withdraw Sucessfully", status=200, mimetype="application/json"
         )
@@ -501,12 +506,14 @@ def send():
         for i in db.wallet.find({"username": username}):
             newbalance = int(i["balance"]) - int(amount)
             update_wallet(username, newbalance)
-            add_block(username, "send", ("-" + amount), "", username, address, 0)
+            add_block(username, "send", ("-" + amount),
+                      "", username, address, 0)
         for i in db.wallet.find({"address": address}):
             newbal = int(i["balance"]) + int(amount)
             update_wallet(i["username"], newbal)
             add_block(
-                i["username"], "recived", ("+" + amount), "", username, i["username"], 0
+                i["username"], "recived", ("+" +
+                                           amount), "", username, i["username"], 0
             )
         response_data = "Ok"
         status_code = 200
@@ -626,7 +633,8 @@ def add_book_amount(bookname, amount, IDBook):
     else:
         isExisted = False
     if not isExisted:
-        bookamount = {"_id": id, "bookname": name, "amount": amount, "idBook": IDBook}
+        bookamount = {"_id": id, "bookname": name,
+                      "amount": amount, "idBook": IDBook}
         db.book_amount.insert_one(bookamount)
     else:
         for i in db.book_amount.find({"bookname": name}):
@@ -826,7 +834,8 @@ def update_username(bookid, username, amount):
     res = ""
     list = []
     newid = datetime.now().microsecond + datetime(1970, 1, 1).microsecond
-    _id = int(datetime.now().microsecond + datetime(1970, 2, 1).microsecond) * 2
+    _id = int(datetime.now().microsecond +
+              datetime(1970, 2, 1).microsecond) * 2
     for i in db.book.find({"_id": bookid}):
         list.append(i)
     if len(list) > 0:
@@ -916,7 +925,8 @@ def onBuy():
                 update_wallet(username, new_balance)
                 seller_balance = get_balance(i["username"])
                 update_wallet(
-                    i["username"], (seller_balance + round(int(youpay) / 24245))
+                    i["username"], (seller_balance +
+                                    round(int(youpay) / 24245))
                 )
                 print(i["bookid"])
                 update_username(i["bookid"], username, amount)
@@ -1135,7 +1145,8 @@ def shipForm(idbook):
         "timecreated": timecreated,
     }
     add_block(
-        decode_auth_token(token), "ship", amount, getaddress_book(idbook), "", "", 1
+        decode_auth_token(token), "ship", amount, getaddress_book(
+            idbook), "", "", 1
     )
     currentamount = 0
     current = 0
@@ -1143,7 +1154,8 @@ def shipForm(idbook):
         currentamount = i["balance"]
     update_wallet(decode_auth_token(token), int(currentamount) - 5)
     add_block(
-        decode_auth_token(token), "ship", "-5", getaddress_book(idbook), "", "", 0
+        decode_auth_token(
+            token), "ship", "-5", getaddress_book(idbook), "", "", 0
     )
     for i in db.book.find({"_id": idbook}):
         current = i["sl"]
@@ -1216,32 +1228,35 @@ def gettota_book():
     return Response(response=str(count), status=200, mimetype="application/json")
 
 
+# for i in db.book.find({"detail": {"$regex": 'học'}}):
+#     print(i)
+
+
 @app.route("/api/search/<string:value>", methods=["GET"])
 def onSearch(value):
     listaccount = []
     listbook = []
-    response_data = ""
-    status_code = 404
-    if isLogin:
-        for i in db.account.find({"username": {"$regex": value}}):
-            i["timecreated"] = getaddressbyusername(i["username"])
-            listaccount.append(i)
-        for i in db.book.find({"name": {"$regex": value}}):
-            listbook.append(i)
-        for i in db.book.find({"country": {"$regex": value}}):
-            listbook.append(i)
-        for i in db.book.find({"type": {"$regex": value}}):
-
-            listbook.append(i)
-        if len(listbook):
-            response_data = json.dumps({"book": listbook, "account": listaccount})
-            status_code = 200
-        if len(listaccount):
-            response_data = json.dumps({"account": listaccount, "book": listbook})
-            status_code = 200
+    response_data = ''
+    status_code = 202
+    for item in db.book.find({"country": {"$regex": value}}):
+        print(item)
+        listbook.append(item)
+    for item in db.book.find({"detail": {"$regex": value}}):
+        listbook.append(item)
+    for i in db.account.find({"username": {"$regex": value}}):
+        i["timecreated"] = getaddressbyusername(i["username"])
+        listaccount.append(i)
+    if len(listbook):
+        response_data = json.dumps(
+            {"book": listbook, "account": listaccount})
+        status_code = 200
+    elif len(listaccount):
+        response_data = json.dumps(
+            {"account": listaccount, "book": listbook})
+        status_code = 200
     else:
-        response_data = "must be login"
-        status_code = 401
+        response_data = "Not Found"
+        status_code = 400
     return Response(
         response=response_data, status=status_code, mimetype="application/json"
     )

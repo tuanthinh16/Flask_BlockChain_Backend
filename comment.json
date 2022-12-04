@@ -1,0 +1,34 @@
+[{
+  "_id": 842227,
+  "username": "tuanthinh",
+  "bookid": "1669780474",
+  "detail": "raast hay",
+  "time": {
+    "$date": {
+      "$numberLong": "1669811566842"
+    }
+  },
+  "point": 0
+},{
+  "_id": 926100,
+  "username": "tuanthinh",
+  "bookid": "1669780474",
+  "detail": "hay",
+  "time": {
+    "$date": {
+      "$numberLong": "1669811983926"
+    }
+  },
+  "point": 2
+},{
+  "_id": 248237,
+  "username": "thinh16",
+  "bookid": "1669787890",
+  "detail": "nice",
+  "time": {
+    "$date": {
+      "$numberLong": "1669813111248"
+    }
+  },
+  "point": 0
+}]

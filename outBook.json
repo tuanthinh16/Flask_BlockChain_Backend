@@ -1,52 +1,35 @@
 [{
-  "_id": 325214,
+  "_id": "1669786864",
   "name": "Học Cho Ai Học Để Làm Gì",
-  "nxb": "NXB Trẻ",
+  "type": "Khác",
+  "detail": "Chúng ta không thể lựa chọn được xuất thân của mình, nhưng bằng sự cần cù chăm chỉ, cùng với nghị lực kiên định và tinh thần không khuất phục trước khó khăn, chúng ta có thể lựa chọn việc không ngừng học tập, dùng tri thức và năng lực để thay đổi cuộc đời. Cuộc sống phía trước đầy thử thách và cơ hội. Một người nếu có tài năng và sở trường mà xã hội cần đến thì dù anh ta ở bất kì hoàn cảnh nào trong xã hội, sớm muộn sẽ có một ngày được thi thố tài năng, giúp ích cho đời.  Cuốn sách Học cho ai? Học để làm gì? giúp các em hiểu được ý nghĩa của việc học, khơi dậy tiềm năng học tập của bản thân, trở thành những học trò thích học và học giỏi, đặt nền tảng vững chắc cho con đường đi tới tương lai.",
   "country": "Mỹ",
-  "url": "https://res.cloudinary.com/dwweabf16/image/upload/v1669786868/nhqrkodpd8cy2vevptyr.jpg",
-  "detail": "Chúng ta không thể lựa chọn được xuất thân của mình, nhưng bằng sự cần cù chăm chỉ, cùng với nghị lực kiên định và tinh thần không khuất phục trước khó khăn, chúng ta có thể lựa chọn việc không ngừng học tập, dùng tri thức và năng lực để thay đổi cuộc đời. Cuộc sống phía trước đầy thử thách và cơ hội. Một người nếu có tài năng và sở trường mà xã hội cần đến thì dù anh ta ở bất kì hoàn cảnh nào trong xã hội, sớm muộn sẽ có một ngày được thi thố tài năng, giúp ích cho đời.  Cuốn sách Học cho ai? Học để làm gì? giúp các em hiểu được ý nghĩa của việc học, khơi dậy tiềm năng học tập của bản thân, trở thành những học trò thích học và học giỏi, đặt nền tảng vững chắc cho con đường đi tới tương lai.",
-  "amount": "5",
-  "price": "",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1669812551328"
-    }
-  },
-  "bookid": "1669786864",
   "address": "400da5e8724e3dd6d21ed37052a5344d",
-  "username": "tuanthinh"
+  "nxb": "NXB Trẻ",
+  "datexb": "2000",
+  "sl": 0,
+  "pdf": "https://file.nhasachmienphi.com/pdf/nhasachmienphi-machine-learning-co-ban.pdf",
+  "username": "tuanthinh",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812065718"
+    }
+  }
 },{
-  "_id": 798840,
+  "_id": "1669787462",
   "name": "Học Cho Ai Học Để Làm Gì 1",
-  "nxb": "nhi dong",
-  "country": "Pháp",
-  "url": "https://res.cloudinary.com/dwweabf16/image/upload/v1669787463/vzoujqkdktydicjqjk9w.jpg",
+  "type": "Khác",
   "detail": "Chúng ta không thể lựa chọn được xuất thân của mình, nhưng bằng sự cần cù chăm chỉ, cùng với nghị lực kiên định và tinh thần không khuất phục trước khó khăn, chúng ta có thể lựa chọn việc không ngừng học tập, dùng tri thức và năng lực để thay đổi cuộc đời. Cuộc sống phía trước đầy thử thách và cơ hội. Một người nếu có tài năng và sở trường mà xã hội cần đến thì dù anh ta ở bất kì hoàn cảnh nào trong xã hội, sớm muộn sẽ có một ngày được thi thố tài năng, giúp ích cho đời.  Cuốn sách Học cho ai? Học để làm gì? giúp các em hiểu được ý nghĩa của việc học, khơi dậy tiềm năng học tập của bản thân, trở thành những học trò thích học và học giỏi, đặt nền tảng vững chắc cho con đường đi tới tương lai.",
-  "amount": "3",
-  "price": "500000",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1669812696837"
-    }
-  },
-  "bookid": "1669787462",
+  "country": "Pháp",
   "address": "7141814550e902bba5e67f07f522abd9",
-  "username": "thinh"
-},{
-  "_id": 46732,
-  "name": "Cha Và Con - Tình Cha Con Của Những Người Nổi Tiếng",
-  "nxb": "NXB Kim Đồng",
-  "country": "",
-  "url": "https://res.cloudinary.com/dwweabf16/image/upload/v1669787893/nczt0aj0z88tzaoaf8wp.jpg",
-  "detail": "Cha Và Con - Tình Cha Con Của Những Người Nổi Tiếng  Cha và con với những bài viết chân thực, xúc động và hết sức độc đáo về tình cảm, kỷ niệm giữa cha con của những người nổi tiếng ở nhiều lĩnh vực khác nhau trong xã hội.  ....Hồi ức, kỷ niệm của mỗi người, và dấu tích của một thời, sự chân thực, tự nhiên, tinh tế, giàu chi tiết sinh động, đắt giá, và, tâm huyết nồng nàn đến tùng câu chữ...  Có thể gặp vô vàn những cung bậc cảm xúc; tình cảm tri ân sâu nặng, nỗi ân hận muộn màng, niềm thương nhớ khôn nguôi, lòng tự hào không che giấu, sự kiêu hãnh thầm lặng, những niềm đau không dứt và cả những điều bí mật tưởng sẽ \"đào sâu chôn chặt\". Người cha không chỉ cho ta hình hài, thân xác mà còn là người thầy đầu tiên, tạo nên nhân cách, định hướng tương lai cho con mình.",
-  "amount": "2",
-  "price": "500000",
+  "nxb": "nhi dong",
+  "datexb": "2017",
+  "sl": 0,
+  "pdf": "https://file.nhasachmienphi.com/pdf/nhasachmienphi-machine-learning-co-ban.pdf",
+  "username": "thinh",
   "timestamp": {
     "$date": {
-      "$numberLong": "1669813144051"
+      "$numberLong": "1669812663695"
     }
-  },
-  "bookid": "1669787890",
-  "address": "6b9f49394bfd4ee6783d922e3c5d7df0",
-  "username": "thinh16"
+  }
 }]

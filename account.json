@@ -12,29 +12,42 @@
     }
   }
 },{
-  "_id": 993965,
+  "_id": 277731,
   "fname": "DO TUAN THINH",
   "username": "tuanthinh",
-  "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-  "email": "tuanthinh@gmail.com",
-  "address": "",
-  "phone": "",
+  "password": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+  "email": "tuanthinh@gmial.comm",
+  "address": "nghe an",
+  "phone": "123",
   "timecreated": {
     "$date": {
-      "$numberLong": "1665445453995"
+      "$numberLong": "1669805392283"
     }
   }
 },{
-  "_id": 839114,
-  "fname": "DO TUAN THINH ",
+  "_id": 562063,
+  "fname": "DO TUAN THINH",
   "username": "thinh",
   "password": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
-  "email": "thinh@thinh@gmail.com",
+  "email": "tuanthin@gmail.com",
   "address": "",
   "phone": "",
   "timecreated": {
     "$date": {
-      "$numberLong": "1666770922842"
+      "$numberLong": "1669812600564"
+    }
+  }
+},{
+  "_id": 719648,
+  "fname": "THINHHH",
+  "username": "thinh16",
+  "password": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+  "email": "tuanthinh@gmail.com",
+  "address": "nghe an",
+  "phone": "123",
+  "timecreated": {
+    "$date": {
+      "$numberLong": "1669813034723"
     }
   }
 }]

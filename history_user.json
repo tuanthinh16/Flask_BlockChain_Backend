@@ -1,169 +1,323 @@
 [{
-  "_id": 320592,
-  "username": "admin",
-  "blockID": 1,
-  "hash": "00b02094d66d30bb63c7b7bfb1f57228f726a943bcec3ec4d0e6faac46af7394",
-  "methods": "create",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1665445425315"
-    }
-  },
-  "fromusr": "admin",
-  "value": 0,
-  "to": "admin"
-},{
-  "_id": 1911,
+  "_id": 352927,
   "username": "tuanthinh",
-  "blockID": 2,
-  "hash": "00573999396866caac571e7434eee7db1bba6e31ac38f81fbea5218fc69c953e",
+  "blockID": 1,
+  "hash": "00e7963c7a2981be77aebbd5433488945d59d1617d962c6a1ae24be88928710e",
   "methods": "create",
   "timestamp": {
     "$date": {
-      "$numberLong": "1665445453997"
+      "$numberLong": "1669805392348"
     }
   },
   "fromusr": "admin",
   "value": 0,
   "to": "tuanthinh"
 },{
-  "_id": 795045,
+  "_id": 63794,
   "username": "tuanthinh",
   "blockID": 3,
-  "hash": "00ba8ab0bb333e6dca32e2878d7f9930e60456308146d48ca7e0ab9f903ec4bd",
+  "hash": "00f5976f20f78f0ef0532e42822bafba19e9ee6ddf14cf6163356db502efcb86",
   "methods": "add_book",
   "timestamp": {
     "$date": {
-      "$numberLong": "1665447680791"
+      "$numberLong": "1669805676059"
     }
   },
-  "fromusr": "1665422479",
-  "value": "2",
+  "fromusr": "1669780474",
+  "value": "10",
   "to": "tuanthinh"
 },{
-  "_id": 1156,
-  "username": "tuanthinh",
-  "blockID": 4,
-  "hash": "0031b75b553cd17a96c99f40576b8e86e2a47798a6e000157423139e87548c73",
-  "methods": "add_book",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1665454218997"
-    }
-  },
-  "fromusr": "1665429018",
-  "value": "1",
-  "to": "tuanthinh"
-},{
-  "_id": 36844,
+  "_id": 510711,
   "username": "tuanthinh",
   "blockID": 5,
-  "hash": "006d58ef8c6245e1156304418b33fa0667bc379bcfeeff36b0e0ea17b0cbed0b",
+  "hash": "0069de251b14d540fb2aee81c49b4c91f04387f7bc6972abf9cd9b6f9ca78d39",
   "methods": "add_book",
   "timestamp": {
     "$date": {
-      "$numberLong": "1666465402032"
+      "$numberLong": "1669805767504"
     }
   },
-  "fromusr": "1666440200",
-  "value": "2",
+  "fromusr": "1669780566",
+  "value": "5",
   "to": "tuanthinh"
 },{
-  "_id": 162650,
+  "_id": 711746,
   "username": "tuanthinh",
   "blockID": 6,
-  "hash": "006de0364e913700a2f13f4e01c5dbcd941c5739ca20cc8428a2de8a9a700ac1",
-  "methods": "add_book",
+  "hash": "00c6bacdfa00759cce42a5071d780d6545179de2ac4b9b8d70ed6024bcd1eea7",
+  "methods": "deposit",
   "timestamp": {
     "$date": {
-      "$numberLong": "1666465518158"
+      "$numberLong": "1669805796706"
     }
   },
-  "fromusr": "1666440317",
-  "value": "1",
+  "fromusr": "admin",
+  "value": "+100",
   "to": "tuanthinh"
 },{
-  "_id": 472459,
-  "username": "",
-  "blockID": 7,
-  "hash": "003cec62e38ade3fe4ec32737abcf305af93d2c9dcf47f97624b72502397569b",
-  "methods": "create",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1666769673453"
-    }
-  },
-  "fromusr": "admin",
-  "value": 0,
-  "to": ""
-},{
-  "_id": 857065,
-  "username": "thinh",
-  "blockID": 8,
-  "hash": "00530f1575491e20297ed4157b0bdeb061bd0f411b403eb03113f4f9df19c675",
-  "methods": "create",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1666770922847"
-    }
-  },
-  "fromusr": "admin",
-  "value": 0,
-  "to": "thinh"
-},{
-  "_id": 764904,
-  "username": "thinh",
-  "blockID": 9,
-  "hash": "008687a52806c41d7b6ead8c7708ca9eecda76cb4d8fc8479369aaefe496ca31",
-  "methods": "add_book",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1666771074757"
-    }
-  },
-  "fromusr": "1666745873",
-  "value": "1",
-  "to": "thinh"
-},{
-  "_id": 909018,
-  "username": "thinh",
-  "blockID": 10,
-  "hash": "00c198011a3b9443d2f18a9247e4a84ea6e2a53128274aca706633e1e92b10f5",
-  "methods": "add_book",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1666771222890"
-    }
-  },
-  "fromusr": "1666746020",
-  "value": "2",
-  "to": "thinh"
-},{
-  "_id": 336660,
+  "_id": 698615,
   "username": "tuanthinh",
-  "blockID": 11,
-  "hash": "004ab42a957954bdca7f9f8bcb4a3cb485a695d0799c00f490fe3bebf09ab057",
-  "methods": "sell",
+  "blockID": 8,
+  "hash": "001dbd7cf3a602c383fffc74aeb7057073de05e80b788246a2c2d5769ea73b80",
+  "methods": "ship",
   "timestamp": {
     "$date": {
-      "$numberLong": "1667316419332"
+      "$numberLong": "1669810957684"
     }
   },
   "fromusr": "",
-  "value": "1",
+  "value": "-5",
   "to": ""
 },{
-  "_id": 320453,
+  "_id": 592461,
   "username": "tuanthinh",
-  "blockID": 12,
-  "hash": "00eb7d8f13f7d908819c2da454b18170430d99925739543b1fda4fe68ba287f9",
+  "blockID": 10,
+  "hash": "0020e87fab2d70811a6eea68704846e55789edcc41a54530ea28a59401309d1c",
   "methods": "sell",
   "timestamp": {
     "$date": {
-      "$numberLong": "1667316659317"
+      "$numberLong": "1669812029582"
     }
   },
-  "fromusr": "1666440317",
-  "value": "1",
+  "fromusr": "1669780566",
+  "value": "2",
   "to": "Market"
+},{
+  "_id": 745730,
+  "username": "tuanthinh",
+  "blockID": 12,
+  "hash": "0001f97aae3c156a5c6df5f464e2604ea830bed33b43ccec2f05142cdff04777",
+  "methods": "add_book",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812065732"
+    }
+  },
+  "fromusr": "1669786864",
+  "value": "5",
+  "to": "tuanthinh"
+},{
+  "_id": 909524,
+  "username": "tuanthinh",
+  "blockID": 13,
+  "hash": "00905cdf80175ec4ecad4bf7d921139ed857b661d14641378c0d34d2bbec09df",
+  "methods": "deposit",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812145904"
+    }
+  },
+  "fromusr": "admin",
+  "value": "+100",
+  "to": "tuanthinh"
+},{
+  "_id": 191017,
+  "username": "tuanthinh",
+  "blockID": 15,
+  "hash": "00b6af80be7761878f4a52ff5b3312b5f4ef626fbb179817d0527cc40f80f55d",
+  "methods": "add_book",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812506184"
+    }
+  },
+  "fromusr": "1669787305",
+  "value": "10",
+  "to": "tuanthinh"
+},{
+  "_id": 370004,
+  "username": "tuanthinh",
+  "blockID": 17,
+  "hash": "002c354d59951edfcba74eb085cb590f2c02f00d607e9107abfa24b6ce77c108",
+  "methods": "sell",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812551366"
+    }
+  },
+  "fromusr": "1669786864",
+  "value": "5",
+  "to": "Market"
+},{
+  "_id": 571041,
+  "username": "thinh",
+  "blockID": 18,
+  "hash": "00352feb5e61f9b87b5e1be70861383eac1b75f599a9a6f065a3be7a36998cbe",
+  "methods": "create",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812600567"
+    }
+  },
+  "fromusr": "admin",
+  "value": 0,
+  "to": "thinh"
+},{
+  "_id": 739219,
+  "username": "thinh",
+  "blockID": 20,
+  "hash": "001459c710014c956e93a6d7936a0929a7eb6ba86d18d88610b3e1241e8ce1a5",
+  "methods": "add_book",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812663719"
+    }
+  },
+  "fromusr": "1669787462",
+  "value": "3",
+  "to": "thinh"
+},{
+  "_id": 926506,
+  "username": "thinh",
+  "blockID": 22,
+  "hash": "00c89f654020f1589a88fc7dd2af76b4e7d16694a00202b3fe5fe85e4751fe49",
+  "methods": "sell",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812696915"
+    }
+  },
+  "fromusr": "1669787462",
+  "value": "3",
+  "to": "Market"
+},{
+  "_id": 683614,
+  "username": "thinh",
+  "blockID": 23,
+  "hash": "00b690f4c6346702ad9576245fa5c6dd052efed1e110588d2127ba3fad2ce0da",
+  "methods": "deposit",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812742673"
+    }
+  },
+  "fromusr": "admin",
+  "value": "+100",
+  "to": "thinh"
+},{
+  "_id": 174025,
+  "username": "thinh",
+  "blockID": 24,
+  "hash": "00304297591cac9144276a576efeceb48e1b40d44c191944988fba35a6a0716b",
+  "methods": "buy",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812755162"
+    }
+  },
+  "fromusr": "tuanthinh",
+  "value": "-250000.0",
+  "to": "thinh"
+},{
+  "_id": 198959,
+  "username": "tuanthinh",
+  "blockID": 26,
+  "hash": "00ec4265b45a579b42f29253497e9affbc8ef78cf950b07a1cddef1441dd1ccc",
+  "methods": "sold",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812755193"
+    }
+  },
+  "fromusr": "thinh",
+  "value": "+11",
+  "to": "tuanthinh"
+},{
+  "_id": 762660,
+  "username": "thinh16",
+  "blockID": 27,
+  "hash": "00a5ddef6eed09484e481a3f725d887a042654532f1d78079652d2d886797b17",
+  "methods": "create",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669813034753"
+    }
+  },
+  "fromusr": "admin",
+  "value": 0,
+  "to": "thinh16"
+},{
+  "_id": 470731,
+  "username": "thinh16",
+  "blockID": 29,
+  "hash": "00b658aecec25296362ada49c062174c847c3ffabb42e19fe4637b3a274a5ca5",
+  "methods": "add_book",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669813091460"
+    }
+  },
+  "fromusr": "1669787890",
+  "value": "3",
+  "to": "thinh16"
+},{
+  "_id": 113419,
+  "username": "thinh16",
+  "blockID": 31,
+  "hash": "009948ba2b4d4ac09f8dd555c9e250d52d06205c3b081c9378ea57db9ee8544b",
+  "methods": "sell",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669813144100"
+    }
+  },
+  "fromusr": "1669787890",
+  "value": "2",
+  "to": "Market"
+},{
+  "_id": 857632,
+  "username": "thinh16",
+  "blockID": 32,
+  "hash": "0086cfbaeebbdbdebe7f0a4a5b074e03cc30865b046d3817d4cff1f12773c322",
+  "methods": "deposit",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669813172848"
+    }
+  },
+  "fromusr": "admin",
+  "value": "+100",
+  "to": "thinh16"
+},{
+  "_id": 91642,
+  "username": "thinh16",
+  "blockID": 33,
+  "hash": "00fbf295e24575bfd232c918852c4cca62b58285d0fff01cbea627ccab804aa1",
+  "methods": "buy",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669813182082"
+    }
+  },
+  "fromusr": "tuanthinh",
+  "value": "-250000.0",
+  "to": "thinh16"
+},{
+  "_id": 116576,
+  "username": "tuanthinh",
+  "blockID": 35,
+  "hash": "004d1a1a6f0fc88953a5b427d038b411ccdc5918f5d855abd86182f8717a47a8",
+  "methods": "sold",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669813182110"
+    }
+  },
+  "fromusr": "thinh16",
+  "value": "+11",
+  "to": "tuanthinh"
+},{
+  "_id": 904117,
+  "username": "thinh16",
+  "blockID": 36,
+  "hash": "00cffb2059f81ca4ef5aea213dd44196e601127a4219803431ae54a49f50390d",
+  "methods": "send",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669813240896"
+    }
+  },
+  "fromusr": "thinh16",
+  "value": "-10",
+  "to": "f5d2abfd1fddbc2228111cf02ddf3067 "
 }]

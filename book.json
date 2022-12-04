@@ -1,76 +1,102 @@
 [{
-  "_id": "1665429018",
-  "name": "Học Cho Ai Học Để Làm Gì",
-  "type": "menu.categories-teen",
-  "detail": "Chúng ta không thể lựa chọn được xuất thân của mình, nhưng bằng sự cần cù chăm chỉ, cùng với nghị lực kiên định và tinh thần không khuất phục trước khó khăn, chúng ta có thể lựa chọn việc không ngừng học tập, dùng tri thức và năng lực để thay đổi cuộc đời. Cuộc sống phía trước đầy thử thách và cơ hội. Một người nếu có tài năng và sở trường mà xã hội cần đến thì dù anh ta ở bất kì hoàn cảnh nào trong xã hội, sớm muộn sẽ có một ngày được thi thố tài năng, giúp ích cho đời.  Cuốn sách Học cho ai? Học để làm gì? giúp các em hiểu được ý nghĩa của việc học, khơi dậy tiềm năng học tập của bản thân, trở thành những học trò thích học và học giỏi, đặt nền tảng vững chắc cho con đường đi tới tương lai.",
-  "country": "menu.lan-vi",
-  "nxb": "NXB Trẻ",
-  "datexb": "2020",
-  "sl": "1",
-  "username": "tuanthinh",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1665454218997"
-    }
-  }
-},{
-  "_id": "1666440200",
-  "name": "Cha Và Con - Tình Cha Con Của Những Người Nổi Tiếng",
-  "type": "menu.categories-art",
-  "detail": "Cha Và Con - Tình Cha Con Của Những Người Nổi Tiếng  Cha và con với những bài viết chân thực, xúc động và hết sức độc đáo về tình cảm, kỷ niệm giữa cha con của những người nổi tiếng ở nhiều lĩnh vực khác nhau trong xã hội.  ....Hồi ức, kỷ niệm của mỗi người, và dấu tích của một thời, sự chân thực, tự nhiên, tinh tế, giàu chi tiết sinh động, đắt giá, và, tâm huyết nồng nàn đến tùng câu chữ...  Có thể gặp vô vàn những cung bậc cảm xúc; tình cảm tri ân sâu nặng, nỗi ân hận muộn màng, niềm thương nhớ khôn nguôi, lòng tự hào không che giấu, sự kiêu hãnh thầm lặng, những niềm đau không dứt và cả những điều bí mật tưởng sẽ \"đào sâu chôn chặt\". Người cha không chỉ cho ta hình hài, thân xác mà còn là người thầy đầu tiên, tạo nên nhân cách, định hướng tương lai cho con mình.",
-  "country": "menu.lan-vi",
-  "nxb": "NXB Kim Đồng",
-  "datexb": "2019",
-  "sl": "2",
-  "username": "tuanthinh",
-  "timestamp": {
-    "$date": {
-      "$numberLong": "1666465402032"
-    }
-  }
-},{
-  "_id": "1666440317",
-  "name": "Công Nghệ Blockchain",
-  "type": "menu.categories-computer",
+  "_id": "1669780474",
+  "name": "Công Nghệ BlockChain",
+  "type": "Máy Tính & Công Nghệ",
   "detail": "Blockchain là chủ đề đang vô cùng nóng trên toàn cầu hiện nay. Nó cùng với Bitcoin và tiền kỹ thuật số trở thành đề tài bàn luận trên rất nhiều mặt báo và trong những cuộc trò chuyện của mọi người. Tuy nhiên, khi nói về blockchain vẫn còn nhiều tranh cãi. Có người lo lắng rằng Bitcoin có thể chỉ là bong bóng, nhiều người cho rằng công nghệ phía sau nó là một sự đột phá, và công nghệ ấy sẽ tiếp tục con đường của mình cho đến khi được chấp nhận và tích hợp với Internet.  Thậm chí, Jamie Dimon, CEO của JP Morgan, người đã gay gắt phản đối Bitcoin và gây ra nhiều lo lắng cho cộng đồng tiền kỹ thuật số cũng đã đồng ý rằng, công nghệ DLT (công nghệ sổ cái phân tán – distributed ledger technology) có tiềm năng rất lớn để thay đổi ngành tài chính và các ngành khác. Hơn nữa, JP Morgan cùng với nhiều ngân hàng đã tiến hành kiểm tra blockchain cho những trường hợp sử dụng khác nhau trong thực tế.  Vậy thì Blockchain thực chất là gì? Nó có thể ứng dụng vào những lĩnh vực nào trong cuộc sống và tại sao nó lại được quan tâm như vậy?",
-  "country": "menu.lan-vi",
-  "nxb": "Nhiều Tác Giả",
-  "datexb": "2020",
-  "sl": "1",
+  "country": "Việt Nam",
+  "address": "ddf5e85740eb2b46999940e3f84a60fd",
+  "nxb": "Nhiều tác giả",
+  "datexb": "2019",
+  "sl": "10",
+  "pdf": "https://file.nhasachmienphi.com/pdf/nhasachmienphi-cong-nghe-blockchain.pdf",
   "username": "tuanthinh",
   "timestamp": {
     "$date": {
-      "$numberLong": "1666465518158"
+      "$numberLong": "1669805675985"
     }
   }
 },{
-  "_id": "1666745873",
-  "name": "Sài Gòn Năm Xưa",
-  "type": "menu.categories-history",
-  "detail": "Sài Gòn Năm Xưa (Tái Bản 2018)  Bởi thấy tôi là người trong Nam, đầu pha hai thứ tóc, làm việc trong một cơ quan chuyên môn, thêm có tánh ham chơi cổ ngoạn, tom góp giấy má cũ đầy nhà, rồi tiếng đồn truyền ra: tôi sành sỏi chuyện xưa, tôi giỏi kê cứu điển cố, báo hại phần đông văn hữu Bắc và Trung, ông nào quen một đôi lần, gặp nhau, hết năm ba câu lấy lệ, làm gì cũng hỏi vặn tôi về:  \"gốc tích hai chữ \"SÀI GÒN\"  Nói ư? - Chỉ bày cái dốt của mình ra!  Nín ư? - Người cười, càng thêm khó chịu!  Thôi thì còn một cách: ôm mớ tài liệu thâu thập bấy lâu - dù hay dù dở, dù chưa bằng bụng, mình biết lấy mình - bày hết, trình hết ra đây, mặc tình các vị xa gần tùy thích lựa chọn: \"tóc tơ cặn kẽ đuôi đầu\", dù chẳng làm nên cái bánh ngon, cũng được tiếng là không xấu bụng! Đối với các bạn nhỏ hiếu học, tôi xin nói lớn:  - Chỗ nào các bạn thấy mới, đáng sợ: ấy tôi đã cân nhắc kỹ càng, cứ tin cứ dùng: \"coi vậy mà xài được\"!  - Chỗ nào chưa \"êm\", nhờ các bạn chỉ giùm, nếu tìm cách bổ khuyết càng tốt, gọi giúp lẫn nhau: già thua trẻ không xấu, mắc cỡ bậy, hay gì? Đối với các học giả, các bậc lão thành, các vị cố cựu đất Sài Gòn, tôi xin \"nghiêng tai nghe dạy, chắp tay đứng hầu\".  Học giả tiền bối trong Nam, cụ Trương Vĩnh Ký, trong \"Excursions et Reconnaissances\" (tạp chí về du lãm và thám hiểm), tập số 23, tháng Năm và Sáu năm 1885, có viết một bài khảo cứu Pháp Văn \"Souvenirs historiques sur Saigon et ses environs\" (ký ức lục khảo về lịch sử Sài Gòn và vùng phụ cận). Bài này viết hai mươi lăm năm sau năm Nam Kỳ thất thủ (1859-1885). Nay tôi dựa theo bài ấy làm nồng cốt mà kể tiếp, nhắc lại những sự biến đổi từ thuở đó cho đến ngày Sài Gòn trở về với dân Việt, ngót một trăm năm. Bắt tay vào việc, cốt ý của tôi là muốn cống hiến ra đây mớ hiểu biết lụn vụn và mớ nghe thấy vặt vãnh về Sài Gòn. Cũng nghĩ nếu mãi sụt sè, đến ngày xuống lỗ, chắc gì ôm theo được (mà chừng đó ôm theo ích gì cho ai?)  - Ở đây, tôi chú trọng nhiều nhứt là những đoạn sử vụn vặt buổi giao thời: Pháp - Nam  - Chà - Chệc chung đụng, những chuyện \"Tây đến Tây đi\", những việc chưa ai nói rõ ràng, may tôi được nghe tận tai, hoặc thấy tận mắt, nhiều đoạn do hiểu biết riêng, lắm đoạn nhờ các cố lão thuật lại. Tôi không dám chắc đúng cả, nhưng \"ăn trầu ngẫm mà nghe\" bây giờ chưa nói còn đợi lúc nào? Có nói có cãi, lần hồi mới phăng ra sự thật.  Tôi không quên cám ơn anh bạn thân Lê Ngọc Trụ, người nhau rún Chợ Lớn, đã dày công giúp tôi xây dựng tập nhỏ này. Cũng như tôi không dám quên ơn tất cả các bạn xa gần đã góp sức cùng tôi, trong số, điển hình nhứt, có anh Mười Minh Tải Đặng Văn Ký, người đồng cảnh ngộ với cụ Trần Trọng Kim Tân Gia Ba thuở nọ. Nay Anh Mười nằm khoảnh làm ẩn sĩ, ấp Đông Nhì, Gò Vấp. Anh không làm gì hết, nhưng anh dày công ủng hộ tôi về mặt tinh thần, giúp thêm ý kiến, và đã đổ nhiều bọt oáp trong khi cùng tôi tìm hiểu địa điểm \"Mả Ngụy\" ngày nay nằm nơi đâu! Còn một người nữa, bạn già với nhau, ông Hoàng Xuân Lợi, họa sĩ Viện Bảo Tàng. Mấy ảnh chụp khéo, mấy bức địa đồ công phu không có, làm sao tập nhỏ này thành hình? Bác Lợi, cảm tình chất chứa tận đáy lòng, tôi vội gói làm một gói \"tri ân nồng hậu\", xin Bác vui nhận.  Thông tin tác giả:  Vương Hồng Sển sinh ngày 27 tháng 9 năm 1902, tại Sóc Trăng, mang ba dòng máu Việt, Hoa, Miên. Nguyên tên thật ông là Vương Hồng Thạnh hay Vương Hồng Thịnh, khi làm giấy khai sinh người giữ sổ lục bộ ghi nhầm là Sển (theo cách phát âm tiếng Hoa).  Thời học sinh, ông học tại trường Collège Chasseloup Laubat (nay là trường Phổ thông trung học Lê Quý Đôn). Sau khi đậu bằng Brevet Elémentaire, ông làm công chức ngạch thư ký và phục vụ nhiều nơi từ năm 1923 đến năm 1943, trong đó có dinh Thống đốc Nam Kỳ (1939-1943). Từ năm 1948, ông làm Quyền quản thủ Viện Bảo tàng Quốc gia Sài Gòn cho đến khi về hưu vào năm 1964.  Ông là người rất ham mê đọc sách và thích ghi chép tất cả những điều tai nghe, mắt thấy. Phần lớn những tác phẩm của ông rút tỉa từ những tài liệu dưới dạng hồi ký mà ông còn giữ gìn được.  Mã hàng\t9786045874868 Nhà Cung Cấp\tNXB Tổng Hợp TPHCM Tác giả\tVương Hồng Sển NXB\tNXB Tổng Hợp TPHCM Năm XB\t2018 Trọng lượng (gr)\t350 Kích Thước Bao Bì\t14.5 x 20.5 Số trang\t316 Hình thức\tBìa Mềm Sản phẩm hiển thị trong\t NXB Tổng hợp thành phố Hồ Chí Minh Sản phẩm bán chạy nhất\tTop 100 sản phẩm Lịch Sử bán chạy của tháng Giá sản phẩm trên Fahasa.com đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như Phụ phí đóng gói, phí vận chuyển, phụ phí hàng cồng kềnh,... Sài Gòn Năm Xưa (Tái Bản 2018)  Bởi thấy tôi là người trong Nam, đầu pha hai thứ tóc, làm việc trong một cơ quan chuyên môn, thêm có tánh ham chơi cổ ngoạn, tom góp giấy má cũ đầy nhà, rồi tiếng đồn truyền ra: tôi sành sỏi chuyện xưa, tôi giỏi kê cứu điển cố, báo hại phần đông văn hữu Bắc và Trung, ông nào quen một đôi lần, gặp nhau, hết năm ba câu lấy lệ, làm gì cũng hỏi vặn tôi về:  \"gốc tích hai chữ \"SÀI GÒN\"  Nói ư? - Chỉ bày cái dốt của mình ra!  Nín ư? - Người cười, càng thêm khó chịu!  Thôi thì còn một cách: ôm mớ tài liệu thâu thập bấy lâu - dù hay dù dở, dù chưa bằng bụng, mình biết lấy mình - bày hết, trình hết ra đây, mặc tình các vị xa gần tùy thích lựa chọn: \"tóc tơ cặn kẽ đuôi đầu\", dù chẳng làm nên cái bánh ngon, cũng được tiếng là không xấu bụng! Đối với các bạn nhỏ hiếu học, tôi xin nói lớn:  - Chỗ nào các bạn thấy mới, đáng sợ: ấy tôi đã cân nhắc kỹ càng, cứ tin cứ dùng: \"coi vậy mà xài được\"!  - Chỗ nào chưa \"êm\", nhờ các bạn chỉ giùm, nếu tìm cách bổ khuyết càng tốt, gọi giúp lẫn nhau: già thua trẻ không xấu, mắc cỡ bậy, hay gì? Đối với các học giả, các bậc lão thành, các vị cố cựu đất Sài Gòn, tôi xin \"nghiêng tai nghe dạy, chắp tay đứng hầu\".  Học giả tiền bối trong Nam, cụ Trương Vĩnh Ký, trong \"Excursions et Reconnaissances\" (tạp chí về du lãm và thám hiểm), tập số 23, tháng Năm và Sáu năm 1885, có viết một bài khảo cứu Pháp Văn \"Souvenirs historiques sur Saigon et ses environs\" (ký ức lục khảo về lịch sử Sài Gòn và vùng phụ cận). Bài này viết hai mươi lăm năm sau năm Nam Kỳ thất thủ (1859-1885). Nay tôi dựa theo bài ấy làm nồng cốt mà kể tiếp, nhắc lại những sự biến đổi từ thuở đó cho đến ngày Sài Gòn trở về với dân Việt, ngót một trăm năm. Bắt tay vào việc, cốt ý của tôi là muốn cống hiến ra đây mớ hiểu biết lụn vụn và mớ nghe thấy vặt vãnh về Sài Gòn. Cũng nghĩ nếu mãi sụt sè, đến ngày xuống lỗ, chắc gì ôm theo được (mà chừng đó ôm theo ích gì cho ai?)  - Ở đây, tôi chú trọng nhiều nhứt là những đoạn sử vụn vặt buổi giao thời: Pháp - Nam  - Chà - Chệc chung đụng, những chuyện \"Tây đến Tây đi\", những việc chưa ai nói rõ ràng, may tôi được nghe tận tai, hoặc thấy tận mắt, nhiều đoạn do hiểu biết riêng, lắm đoạn nhờ các cố lão thuật lại. Tôi không dám chắc đúng cả, nhưng \"ăn trầu ngẫm mà nghe\" bây giờ chưa nói còn đợi lúc nào? Có nói có cãi, lần hồi mới phăng ra sự thật.  Tôi không quên cám ơn anh bạn thân Lê Ngọc Trụ, người nhau rún Chợ Lớn, đã dày công giúp tôi xây dựng tập nhỏ này. Cũng như tôi không dám quên ơn tất cả các bạn xa gần đã góp sức cùng tôi, trong số, điển hình nhứt, có anh Mười Minh Tải Đặng Văn Ký, người đồng cảnh ngộ với cụ Trần Trọng Kim Tân Gia Ba thuở nọ. Nay Anh Mười nằm khoảnh làm ẩn sĩ, ấp Đông Nhì, Gò Vấp. Anh không làm gì hết, nhưng anh dày công ủng hộ tôi về mặt tinh thần, giúp thêm ý kiến, và đã đổ nhiều bọt oáp trong khi cùng tôi tìm hiểu địa điểm \"Mả Ngụy\" ngày nay nằm nơi đâu! Còn một người nữa, bạn già với nhau, ông Hoàng Xuân Lợi, họa sĩ Viện Bảo Tàng. Mấy ảnh chụp khéo, mấy bức địa đồ công phu không có, làm sao tập nhỏ này thành hình? Bác Lợi, cảm tình chất chứa tận đáy lòng, tôi vội gói làm một gói \"tri ân nồng hậu\", xin Bác vui nhận.  Thông tin tác giả:  Vương Hồng Sển sinh ngày 27 tháng 9 năm 1902, tại Sóc Trăng, mang ba dòng máu Việt, Hoa, Miên. Nguyên tên thật ông là Vương Hồng Thạnh hay Vương Hồng Thịnh, khi làm giấy khai sinh người giữ sổ lục bộ ghi nhầm là Sển (theo cách phát âm tiếng Hoa).  Thời học sinh, ông học tại trường Collège Chasseloup Laubat (nay là trường Phổ thông trung học Lê Quý Đôn). Sau khi đậu bằng Brevet Elémentaire, ông làm công chức ngạch thư ký và phục vụ nhiều nơi từ năm 1923 đến năm 1943, trong đó có dinh Thống đốc Nam Kỳ (1939-1943). Từ năm 1948, ông làm Quyền quản thủ Viện Bảo tàng Quốc gia Sài Gòn cho đến khi về hưu vào năm 1964.  Ông là người rất ham mê đọc sách và thích ghi chép tất cả những điều tai nghe, mắt thấy. Phần lớn những tác phẩm của ông rút tỉa từ những tài liệu dưới dạng hồi ký mà ông còn giữ gìn được.",
-  "country": "menu.lan-vi",
-  "nxb": "NXB Tổng Hợp TPHCM",
+  "_id": "1669780566",
+  "name": "Machine Learning Cơ Bản",
+  "type": "Máy Tính & Công Nghệ",
+  "detail": "Những năm gần đây, AI – Artificial Intelligence (Trí Tuệ Nhân Tạo), và cụ thể hơn là Machine Learning (Học Máy hoặc Máy Học) nổi lên như một bằng chứng của cuộc cách mạng công nghiệp lần thứ tư (1 – động cơ hơi nước, 2 – năng lượng điện, 3 – công nghệ thông tin). Trí Tuệ Nhân Tạo đang len lỏi vào mọi lĩnh vực trong đời sống mà có thể chúng ta không nhận ra. Xe tự hành của Google và Tesla, hệ thống tự tag khuôn mặt trong ảnh của Facebook, trợ lý ảo Siri của Apple, hệ thống gợi ý sản phẩm của Amazon, hệ thống gợi ý phim của Netflix, máy chơi cờ vây AlphaGo của Google DeepMind, …, chỉ là một vài trong vô vàn những ứng dụng của AI/Machine Learning.  Machine Learning là một tập con của AI. Theo định nghĩa của Wikipedia, Machine learning is the subfield of computer science that “gives computers the ability to learn without being explicitly programmed”. Nói đơn giản, Machine Learning là một lĩnh vực nhỏ của Khoa Học Máy Tính, nó có khả năng tự học hỏi dựa trên dữ liệu đưa vào mà không cần phải được lập trình cụ thể. Bạn Nguyễn Xuân Khánh tại đại học Maryland đang viết một cuốn sách về Machine Learning bằng tiếng Việt khá thú vị, các bạn có thể tham khảo bài Machine Learning là gì?.  Những năm gần đây, khi mà khả năng tính toán của các máy tính được nâng lên một tầm cao mới và lượng dữ liệu khổng lồ được thu thập bởi các hãng công nghệ lớn, Machine Learning đã tiến thêm một bước dài và một lĩnh vực mới được ra đời gọi là Deep Learning (Học Sâu – thực sự tôi không muốn dịch từ này ra tiếng Việt). Deep Learning đã giúp máy tính thực thi những việc tưởng chừng như không thể vào 10 năm trước: phân loại cả ngàn vật thể khác nhau trong các bức ảnh, tự tạo chú thích cho ảnh, bắt chước giọng nói và chữ viết của con người, giao tiếp với con người, hay thậm chí cả sáng tác văn hay âm nhạc ",
+  "country": "Việt Nam",
+  "address": "1ae150fa1dd5fc67cafa4c96a8539e91",
+  "nxb": "Vũ Hữu Tiệp",
+  "datexb": "2020",
+  "sl": 1,
+  "pdf": "https://file.nhasachmienphi.com/pdf/nhasachmienphi-machine-learning-co-ban.pdf",
+  "username": "tuanthinh",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669805767498"
+    }
+  }
+},{
+  "_id": "1669787305",
+  "name": "Học Cho Ai Học Để Làm Gì",
+  "type": "Máy Tính & Công Nghệ",
+  "detail": "Chúng ta không thể lựa chọn được xuất thân của mình, nhưng bằng sự cần cù chăm chỉ, cùng với nghị lực kiên định và tinh thần không khuất phục trước khó khăn, chúng ta có thể lựa chọn việc không ngừng học tập, dùng tri thức và năng lực để thay đổi cuộc đời. Cuộc sống phía trước đầy thử thách và cơ hội. Một người nếu có tài năng và sở trường mà xã hội cần đến thì dù anh ta ở bất kì hoàn cảnh nào trong xã hội, sớm muộn sẽ có một ngày được thi thố tài năng, giúp ích cho đời.  Cuốn sách Học cho ai? Học để làm gì? giúp các em hiểu được ý nghĩa của việc học, khơi dậy tiềm năng học tập của bản thân, trở thành những học trò thích học và học giỏi, đặt nền tảng vững chắc cho con đường đi tới tương lai.",
+  "country": "Pháp",
+  "address": "400da5e8724e3dd6d21ed37052a5344d",
+  "nxb": "Lê Bạch Tuyết",
   "datexb": "2018",
+  "sl": "10",
+  "pdf": "https://file.nhasachmienphi.com/pdf/nhasachmienphi-cong-nghe-blockchain.pdf",
+  "username": "tuanthinh",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669812506176"
+    }
+  }
+},{
+  "_id": "822465",
+  "name": "Machine Learning Cơ Bản",
+  "type": "Máy Tính & Công Nghệ",
+  "detail": "Những năm gần đây, AI – Artificial Intelligence (Trí Tuệ Nhân Tạo), và cụ thể hơn là Machine Learning (Học Máy hoặc Máy Học) nổi lên như một bằng chứng của cuộc cách mạng công nghiệp lần thứ tư (1 – động cơ hơi nước, 2 – năng lượng điện, 3 – công nghệ thông tin). Trí Tuệ Nhân Tạo đang len lỏi vào mọi lĩnh vực trong đời sống mà có thể chúng ta không nhận ra. Xe tự hành của Google và Tesla, hệ thống tự tag khuôn mặt trong ảnh của Facebook, trợ lý ảo Siri của Apple, hệ thống gợi ý sản phẩm của Amazon, hệ thống gợi ý phim của Netflix, máy chơi cờ vây AlphaGo của Google DeepMind, …, chỉ là một vài trong vô vàn những ứng dụng của AI/Machine Learning.  Machine Learning là một tập con của AI. Theo định nghĩa của Wikipedia, Machine learning is the subfield of computer science that “gives computers the ability to learn without being explicitly programmed”. Nói đơn giản, Machine Learning là một lĩnh vực nhỏ của Khoa Học Máy Tính, nó có khả năng tự học hỏi dựa trên dữ liệu đưa vào mà không cần phải được lập trình cụ thể. Bạn Nguyễn Xuân Khánh tại đại học Maryland đang viết một cuốn sách về Machine Learning bằng tiếng Việt khá thú vị, các bạn có thể tham khảo bài Machine Learning là gì?.  Những năm gần đây, khi mà khả năng tính toán của các máy tính được nâng lên một tầm cao mới và lượng dữ liệu khổng lồ được thu thập bởi các hãng công nghệ lớn, Machine Learning đã tiến thêm một bước dài và một lĩnh vực mới được ra đời gọi là Deep Learning (Học Sâu – thực sự tôi không muốn dịch từ này ra tiếng Việt). Deep Learning đã giúp máy tính thực thi những việc tưởng chừng như không thể vào 10 năm trước: phân loại cả ngàn vật thể khác nhau trong các bức ảnh, tự tạo chú thích cho ảnh, bắt chước giọng nói và chữ viết của con người, giao tiếp với con người, hay thậm chí cả sáng tác văn hay âm nhạc ",
+  "country": "Việt Nam",
+  "address": "1ae150fa1dd5fc67cafa4c96a8539e91",
+  "nxb": "Vũ Hữu Tiệp",
+  "datexb": "2020",
   "sl": "1",
   "username": "thinh",
   "timestamp": {
     "$date": {
-      "$numberLong": "1666771074757"
+      "$numberLong": "1669812754836"
     }
   }
 },{
-  "_id": "1666746020",
-  "name": "Neymar Thiên Tài Tranh Cãi",
-  "type": "menu.categories-sport",
-  "detail": "Cậu ấy có tất cả những phẩm chất của một cầu thủ vĩ đại: cậu ấy rê bóng rất giỏi, ở tốc độ cao; cậu ấy chuyển hướng một cách thanh thoát; cậu ấy có thể dẫn bóng bằng chân trái hay chân phải; cậu ấy có một lực sút tốt; cậu ấy rất nhanh, sáng tạo, thông minh và có sự chính xác ổn định trong những pha dứt điểm cả trong lẫn ngoài vòng cấm; cậu ấy là một goleador (tay săn bàn hàng đầu); cậu ấy có thể ghi bàn bằng chân trái hay chân phải, bằng đầu, hay từ một quả đá phạt; cậu ấy đá phạt góc rất hay, có thể đưa bóng cuộn vào vòng cấm. Có lẽ phẩm chất tuyệt vời nhất, điều làm nên sự khác biệt so với các ngôi sao khác, là khả năng rê bóng và ghi bàn bằng cả hai chân - điều mà tôi chỉ mới thấy có Pelé làm được.  Có lẽ cậu ấy nên học cách không ngã xuống một cách quá dễ dàng. Khi Leo Messi bắt đầu rê bóng, kể cả khi đối thủ lao vào để tắc bóng hay dùng cả thân mình để ngăn cản, thì cũng chẳng có điều gì xảy ra cả. Messi tiếp tục chạy và rê bóng, tiếp tục hướng về khung thành. Neymar, ngược lại, sẽ ngã xuống. Một phần vì cậu ấy vẫn còn hơi yếu về mặt thể lực, phần khác vì cậu ấy thích tạo ra một chút kịch tính, kiểu làm trò, để thu hút sự chú ý của đám đông; anh biết đấy, cậu ta giả vờ bị phạm lỗi. Đó là một khiếm khuyết của tuổi trẻ mà cậu ấy đang cố gắng từ từ thoát ra.  (Eduardo Gonçalves de Andrade)  Mã hàng\t9786045533956 Nhà Cung Cấp\tCông Ty Cổ Phần Đầu Tư và Phát Triển TTV Việt Nam Tác giả\tLuca Caioli Người Dịch\tViệt Cường NXB\tNXB Hà Nội Năm XB\t2019 Trọng lượng (gr)\t380 Kích Thước Bao Bì\t15.5 x 23 Số trang\t372 Hình thức\tBìa Mềm Sản phẩm bán chạy nhất\tTop 100 sản phẩm Thể Thao bán chạy của tháng Giá sản phẩm trên Fahasa.com đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như Phụ phí đóng gói, phí vận chuyển, phụ phí hàng cồng kềnh,... Cậu ấy có tất cả những phẩm chất của một cầu thủ vĩ đại: cậu ấy rê bóng rất giỏi, ở tốc độ cao; cậu ấy chuyển hướng một cách thanh thoát; cậu ấy có thể dẫn bóng bằng chân trái hay chân phải; cậu ấy có một lực sút tốt; cậu ấy rất nhanh, sáng tạo, thông minh và có sự chính xác ổn định trong những pha dứt điểm cả trong lẫn ngoài vòng cấm; cậu ấy là một goleador (tay săn bàn hàng đầu); cậu ấy có thể ghi bàn bằng chân trái hay chân phải, bằng đầu, hay từ một quả đá phạt; cậu ấy đá phạt góc rất hay, có thể đưa bóng cuộn vào vòng cấm. Có lẽ phẩm chất tuyệt vời nhất, điều làm nên sự khác biệt so với các ngôi sao khác, là khả năng rê bóng và ghi bàn bằng cả hai chân - điều mà tôi chỉ mới thấy có Pelé làm được.  Có lẽ cậu ấy nên học cách không ngã xuống một cách quá dễ dàng. Khi Leo Messi bắt đầu rê bóng, kể cả khi đối thủ lao vào để tắc bóng hay dùng cả thân mình để ngăn cản, thì cũng chẳng có điều gì xảy ra cả. Messi tiếp tục chạy và rê bóng, tiếp tục hướng về khung thành. Neymar, ngược lại, sẽ ngã xuống. Một phần vì cậu ấy vẫn còn hơi yếu về mặt thể lực, phần khác vì cậu ấy thích tạo ra một chút kịch tính, kiểu làm trò, để thu hút sự chú ý của đám đông; anh biết đấy, cậu ta giả vờ bị phạm lỗi. Đó là một khiếm khuyết của tuổi trẻ mà cậu ấy đang cố gắng từ từ thoát ra.  (Eduardo Gonçalves de Andrade)",
-  "country": "menu.lan-vi",
-  "nxb": "NXB Hà Nội",
-  "datexb": "2019",
-  "sl": "2",
-  "username": "thinh",
+  "_id": "1669787890",
+  "name": "Cha Và Con - Tình Cha Con Của Những Người Nổi Tiếng",
+  "type": "Khác",
+  "detail": "Cha Và Con - Tình Cha Con Của Những Người Nổi Tiếng  Cha và con với những bài viết chân thực, xúc động và hết sức độc đáo về tình cảm, kỷ niệm giữa cha con của những người nổi tiếng ở nhiều lĩnh vực khác nhau trong xã hội.  ....Hồi ức, kỷ niệm của mỗi người, và dấu tích của một thời, sự chân thực, tự nhiên, tinh tế, giàu chi tiết sinh động, đắt giá, và, tâm huyết nồng nàn đến tùng câu chữ...  Có thể gặp vô vàn những cung bậc cảm xúc; tình cảm tri ân sâu nặng, nỗi ân hận muộn màng, niềm thương nhớ khôn nguôi, lòng tự hào không che giấu, sự kiêu hãnh thầm lặng, những niềm đau không dứt và cả những điều bí mật tưởng sẽ \"đào sâu chôn chặt\". Người cha không chỉ cho ta hình hài, thân xác mà còn là người thầy đầu tiên, tạo nên nhân cách, định hướng tương lai cho con mình.",
+  "country": "",
+  "address": "6b9f49394bfd4ee6783d922e3c5d7df0",
+  "nxb": "NXB Kim Đồng",
+  "datexb": "2020",
+  "sl": 1,
+  "pdf": "https://file.nhasachmienphi.com/pdf/nhasachmienphi-cong-nghe-blockchain.pdf",
+  "username": "thinh16",
   "timestamp": {
     "$date": {
-      "$numberLong": "1666771222890"
+      "$numberLong": "1669813091447"
+    }
+  }
+},{
+  "_id": "54742",
+  "name": "Machine Learning Cơ Bản",
+  "type": "Máy Tính & Công Nghệ",
+  "detail": "Những năm gần đây, AI – Artificial Intelligence (Trí Tuệ Nhân Tạo), và cụ thể hơn là Machine Learning (Học Máy hoặc Máy Học) nổi lên như một bằng chứng của cuộc cách mạng công nghiệp lần thứ tư (1 – động cơ hơi nước, 2 – năng lượng điện, 3 – công nghệ thông tin). Trí Tuệ Nhân Tạo đang len lỏi vào mọi lĩnh vực trong đời sống mà có thể chúng ta không nhận ra. Xe tự hành của Google và Tesla, hệ thống tự tag khuôn mặt trong ảnh của Facebook, trợ lý ảo Siri của Apple, hệ thống gợi ý sản phẩm của Amazon, hệ thống gợi ý phim của Netflix, máy chơi cờ vây AlphaGo của Google DeepMind, …, chỉ là một vài trong vô vàn những ứng dụng của AI/Machine Learning.  Machine Learning là một tập con của AI. Theo định nghĩa của Wikipedia, Machine learning is the subfield of computer science that “gives computers the ability to learn without being explicitly programmed”. Nói đơn giản, Machine Learning là một lĩnh vực nhỏ của Khoa Học Máy Tính, nó có khả năng tự học hỏi dựa trên dữ liệu đưa vào mà không cần phải được lập trình cụ thể. Bạn Nguyễn Xuân Khánh tại đại học Maryland đang viết một cuốn sách về Machine Learning bằng tiếng Việt khá thú vị, các bạn có thể tham khảo bài Machine Learning là gì?.  Những năm gần đây, khi mà khả năng tính toán của các máy tính được nâng lên một tầm cao mới và lượng dữ liệu khổng lồ được thu thập bởi các hãng công nghệ lớn, Machine Learning đã tiến thêm một bước dài và một lĩnh vực mới được ra đời gọi là Deep Learning (Học Sâu – thực sự tôi không muốn dịch từ này ra tiếng Việt). Deep Learning đã giúp máy tính thực thi những việc tưởng chừng như không thể vào 10 năm trước: phân loại cả ngàn vật thể khác nhau trong các bức ảnh, tự tạo chú thích cho ảnh, bắt chước giọng nói và chữ viết của con người, giao tiếp với con người, hay thậm chí cả sáng tác văn hay âm nhạc ",
+  "country": "Việt Nam",
+  "address": "1ae150fa1dd5fc67cafa4c96a8539e91",
+  "nxb": "Vũ Hữu Tiệp",
+  "datexb": "2020",
+  "sl": "1",
+  "username": "thinh16",
+  "pdf": "https://file.nhasachmienphi.com/pdf/nhasachmienphi-machine-learning-co-ban.pdf",
+  "timestamp": {
+    "$date": {
+      "$numberLong": "1669813182072"
     }
   }
 }]
